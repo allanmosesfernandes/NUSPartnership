@@ -11,6 +11,9 @@ module.exports = {
       lg: "1024px",
       xl: "1440px", 
     },
+    fontFamily: {
+      sans: ["DM Sans", "sans-serif"],
+    },
     extend: {
       colors: {
         allan: "#F9A600",

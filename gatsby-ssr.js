@@ -1,6 +1,6 @@
-import "./src/styles/global.css";
 import React from "react";
 import Layout from "./src/components/layout";
+import "./src/styles/global.css";
 
 // eslint-disable-next-line import/prefer-default-export
 export function wrapPageElement({ element, props }) {

@@ -3,7 +3,7 @@ import * as React from "react";
 function IndexPage() {
   return (
     // eslint-disable-next-line react/jsx-filename-extension
-    <div className="container flex flex-col space-y-5 mx-auto justify-center items-center mt-10 px-4 sm:mt-20 sm:w-4/5">
+    <div className="container flex flex-col space-y-5 mx-auto justify-center items-center mt-20 px-4 sm:mt-40 sm:w-4/5">
       <h2 className="text-oceanBlue text-6xl font-bold my-auto items-center font-body sm:text-8xl">
         Nottingham Students Partnership
       </h2>

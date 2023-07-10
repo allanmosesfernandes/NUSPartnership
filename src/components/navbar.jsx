@@ -11,7 +11,9 @@ function Navbar() {
   };
 
   return (
-    <nav className="relative flex w-full p-2 justify-between items-center mx-auto md:w-4/5 md:p-2 md:my-4">
+    <nav
+      className="fixed left-0 right-0 top-0  flex w-full p-2 justify-between items-center mx-auto md:w-4/5 md:p-2 md:my-4 shadow-md"
+    >
       {/* Logo */}
       <Link to="/">
         <img src={logo} alt="logo" className="h-20" />
@@ -41,8 +43,8 @@ function Navbar() {
       <button
         className={
           hamburger
-            ? "hamburger-icon md:hidden"
-            : "hamburger-icon open md:hidden"
+            ? "hamburger-icon open md:hidden"
+            : "hamburger-icon md:hidden"
         }
         type="button"
         onClick={toggleMenu}
@@ -54,8 +56,8 @@ function Navbar() {
       <div
         className={
           hamburger
-            ? "hidden"
-            : "absolute left-0 right-0 mx-auto top-20 p-4 bg-white w-full h-screen drop-shadow-lg font-semibold"
+            ? "absolute left-0 right-0 mx-auto top-20 p-4 bg-white w- h-screen drop-shadow-lg font-semibold"
+            : "hidden"
         }
       >
         <Link to="/about" className="block py-4 text-center">

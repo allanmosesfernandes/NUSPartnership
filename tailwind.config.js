@@ -9,14 +9,17 @@ module.exports = {
       sm: "640px",
       md: "768px",
       lg: "1024px",
-      xl: "1440px", 
+      xl: "1440px",
     },
     fontFamily: {
-      sans: ["DM Sans", "sans-serif"],
+      body: ["DM Sans", "sans-serif"],
     },
     extend: {
       colors: {
-        allan: "#F9A600",
+        nspNavy: "#2563EB",
+        nspTeal: "06AFA6",
+        nspOrange: "#EF9f69",
+        oceanBlue: "#2563EC",
       },
     },
   },

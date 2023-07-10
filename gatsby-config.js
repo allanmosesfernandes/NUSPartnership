@@ -4,10 +4,11 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://www.yourdomain.tld`,
+    title: "NSP Partners",
   },
   plugins: [
     "gatsby-plugin-postcss",
-    //Google Fonts
+    //Google Fonts//
     {
       resolve: `gatsby-omni-font-loader`,
       options: {

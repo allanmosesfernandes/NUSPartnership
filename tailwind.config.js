@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -21,8 +22,10 @@ module.exports = {
         nspOrange: "#EF9f69",
         oceanBlue: "#2563EC",
       },
+      backgroundImage: {
+        "hero-pattern": "url('./assets/images/home/bg-tablet-pattern.svg')",
+      },
     },
   },
   plugins: [],
 };
-

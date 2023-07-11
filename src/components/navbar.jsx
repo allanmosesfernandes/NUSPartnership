@@ -11,9 +11,7 @@ function Navbar() {
   };
 
   return (
-    <nav
-      className="fixed left-0 right-0 top-0  flex w-full p-2 justify-between items-center mx-auto md:w-4/5 md:p-2 md:my-4 shadow-md"
-    >
+    <nav className="fixed left-0 right-0 top-0  flex w-full p-2 justify-between items-center mx-auto md:w-4/5 md:p-2 md:my-4">
       {/* Logo */}
       <Link to="/">
         <img src={logo} alt="logo" className="h-20" />

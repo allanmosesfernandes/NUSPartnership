@@ -47,3 +47,17 @@ body {
   opacity: 1;
 }
 }
+
+body {
+  background-image: url("../assets/images/home/bg-tablet-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: 800px;
+  background-position: 90% 150%;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-size: 300px;
+    background-position: 80% 0%;
+  }
+}

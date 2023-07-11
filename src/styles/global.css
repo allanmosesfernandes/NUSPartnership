@@ -4,6 +4,9 @@
 
 @layer components {
 /* Hamburger Menu */
+body {
+    background-color: #eef2ff;
+}
 .hamburger-icon {
   cursor: pointer;
   width: 24px;

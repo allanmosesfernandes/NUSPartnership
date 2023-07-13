@@ -22,6 +22,9 @@ module.exports = {
         nspOrange: "#EF9f69",
         oceanBlue: "#2563EC",
       },
+      boxShadow: {
+        box: "3px 3px 0 0 #ffffff",
+      },
       backgroundImage: {
         "hero-pattern": "url('./assets/images/home/bg-tablet-pattern.svg')",
       },

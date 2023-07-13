@@ -55,6 +55,14 @@ body {
   background-position: top right;
 }
 
+.dash{
+  content: "";
+  display: block;
+  width: 30px;
+  height: 1px;
+  background-color: #EEF2FF;
+}
+
 @media screen and (max-width: 768px) {
   body {
     background-size: 300px;

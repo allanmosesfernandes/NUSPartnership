@@ -7,17 +7,11 @@ function NewsWidget() {
 
   const data = useStaticQuery(graphql`
     query MyQuery {
-      allWpPost(limit: 3, sort: { date: DESC }) {
+      allWpPost(limit: 3, sort: { fields: date, order: DESC }) {
         nodes {
-          author {
-            node {
-              firstName
-            }
-          }
           slug
-          title
           id
-          date(formatString: "MMMM DD, YYYY")
+          title
           featuredImage {
             node {
               localFile {
@@ -32,7 +26,6 @@ function NewsWidget() {
     }
   `);
   const posts = data.allWpPost.nodes;
-  console.log(posts);
   return (
     <section className="bg-oceanBlue">
       <div className="flex flex-col mt-20 p-4 md:p-12">
@@ -40,28 +33,26 @@ function NewsWidget() {
           Latest News
         </h2>
         <div className="grid grid-cols-3 gap-6 my-16">
-          {posts.map((post) => {
-            const image = getImage(post.featuredImage.node.localFile);
-            return (
-              <div
-                key={post.id}
-                className="flex flex-col space-y-2 h-full shadow-2xl text-stone-50"
-              >
-                <GatsbyImage
-                  image={image}
-                  alt={post.title}
-                  className="min-h-full"
-                />
-                <h3 className="text-lg font-bold font-body sm:text-lg text-left">
-                  {post.title}
-                </h3>
-                <p className="flex font-medium gap-3 italic relative items-center">
-                  <span className="dash" />
-                  {post.date}
-                </p>
-              </div>
-            );
-          })}
+          {posts.map((post) => (
+            <div
+              key={post.id}
+              className="flex flex-col space-y-2 h-full shadow-2xl text-stone-50"
+            >
+              <GatsbyImage
+                image={getImage(post.featuredImage.node.localFile)}
+                alt={post.title}
+                className="min-h-full"
+              />
+
+              <h3 className="text-lg font-bold font-body sm:text-lg text-left">
+                {post.title}
+              </h3>
+              <p className="flex font-medium gap-3 italic relative items-center">
+                <span className="dash" />
+                {post.date}
+              </p>
+            </div>
+          ))}
         </div>
         <Link to="/news" className="mx-auto mt-4">
           <button

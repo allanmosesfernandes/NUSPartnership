@@ -1,12 +1,13 @@
 import * as React from "react";
 import { useState } from "react";
-import presidentNTSU from "../images/PRESIDENT.jpg";
-import communityNTSU from "../images/community.jpg";
+import presidentNTSU from "../images/people/PRESIDENT.jpg";
+import communityNTSU from "../images/people/COMMUNITY.jpg";
+import sportNTSU from "../images/people/SPORT.jpg";
 
 function IndexPage() {
   const roles = [
     {
-      title: "UDO/Pres",
+      title: "UDO",
       people: [
         {
           image: presidentNTSU,
@@ -58,14 +59,30 @@ function IndexPage() {
       title: "Sport",
       people: [
         {
-          image: communityNTSU,
-          name: "John Smith",
-          role: "Community",
+          image: sportNTSU,
+          name: "Joddie",
+          role: "VP Sport",
         },
         {
           image: communityNTSU,
           name: "Peter Parker",
           role: "Vigilante",
+        },
+        // Add more people to this role
+      ],
+    },
+    {
+      title: "Activities",
+      people: [
+        {
+          image: communityNTSU,
+          name: "Activity Smith",
+          role: "Community",
+        },
+        {
+          image: communityNTSU,
+          name: "Peter Parker",
+          role: "Spiderman",
         },
         // Add more people to this role
       ],
@@ -81,7 +98,7 @@ function IndexPage() {
   return (
     // eslint-disable-next-line react/jsx-filename-extension
     <>
-      <div className="container relative flex flex-col space-y-5 mx-auto justify-center items-center mt-20 px-4 sm:mt-60 sm:w-4/5">
+      <div className="container relative flex flex-col space-y-5 mx-auto justify-center items-center mt-40 px-4 sm:mt-60 sm:w-4/5">
         <h2 className="text-oceanBlue text-6xl font-bold my-auto items-center font-body sm:text-8xl">
           Nottingham Students Partnership
         </h2>
@@ -100,14 +117,14 @@ function IndexPage() {
       </div>
       {/* Who we are */}
       <section id="who-we-are" className="font-body">
-        <div className="flex flex-col space-y-5 mt-32 p-12">
-          <h2 className="text-oceanBlue text-6xl font-bold font-body sm:text-5xl text-left">
+        <div className="flex flex-col space-y-5 mt-32 p-4 md:p-12">
+          <h2 className="text-oceanBlue text-5xl font-bold font-body sm:text-5xl text-left">
             People
           </h2>
           <p className="text-gray-700 text-2xl tracking-tight">
             Key people & Who to contact
           </p>
-          <p className="text-xl w-[70%]">
+          <p className="text-lg w-full lg:w-[70%] lg:text-xl">
             For most enquiries, we would encourage reaching out to our
             partnership coordinator,
             <a
@@ -120,16 +137,16 @@ function IndexPage() {
             but we’ve included some of our officers, and their areas of interest
             bellow to know who to contact about each area.
           </p>
-          <div className="flex mt-20">
+          <div className="flex flex-col mt-20 lg:flex-row">
             {/* Left Side  */}
-            <div className="relative z-10 flex flex-col align-top space-y-20 w-[25%]">
+            <div className="relative z-5 flex flex-row flex-wrap align-center border-b-[1px] border-sky-600 pb-4 gap-4 space-y-2 w-full lg:flex-col lg:w-[25%] justify-center lg:space-y-16 lg:border-0 lg:pb-0">
               {/* Line */}
-              <div className="absolute top[30px] left-[10px] w-[0.2px] h-full bg-slate-600" />
+              <div className="absolute top-[20px] left-[10px] w-[0.2px] h-full bg-slate-600 hidden lg:block" />
               {/* UDO / Pres */}
               <button
                 type="button"
                 tabIndex={0}
-                className="flex flex-row gap-10 relative items-center"
+                className="flex flex-row gap-2 relative items-center lg:gap-10"
                 key={0}
                 onClick={() => handleRoleClick(0)}
               >
@@ -150,17 +167,17 @@ function IndexPage() {
                 <h4
                   className={
                     activeRoleIndex === 0
-                      ? "text-oceanBlue text-2xl font-bold "
-                      : "text-gray-500 text-2xl"
+                      ? "text-oceanBlue text-lg font-bold lg:text-2xl"
+                      : "text-gray-500 text-lg font-bold lg:text-2xl"
                   }
                 >
-                  UDO/Pres
+                  UDO
                 </h4>
               </button>
               <button
                 type="button"
                 tabIndex={0}
-                className="flex flex-row gap-10 relative items-center"
+                className="flex flex-row gap-2 relative items-center lg:gap-10"
                 key={1}
                 onClick={() => handleRoleClick(1)}
               >
@@ -181,8 +198,8 @@ function IndexPage() {
                 <h4
                   className={
                     activeRoleIndex === 1
-                      ? "text-oceanBlue text-2xl font-bold "
-                      : "text-gray-500 text-2xl"
+                      ? "text-oceanBlue text-lg font-bold lg:text-2xl"
+                      : "text-gray-500 text-lg font-bold lg:text-2xl"
                   }
                 >
                   Community
@@ -191,7 +208,7 @@ function IndexPage() {
               <button
                 type="button"
                 tabIndex={0}
-                className="flex flex-row gap-10 relative items-center"
+                className="flex flex-row gap-2 relative items-center lg:gap-10"
                 key={2}
                 onClick={() => handleRoleClick(2)}
               >
@@ -212,8 +229,8 @@ function IndexPage() {
                 <h4
                   className={
                     activeRoleIndex === 2
-                      ? "text-oceanBlue text-2xl font-bold "
-                      : "text-gray-500 text-2xl"
+                      ? "text-oceanBlue text-lg font-bold lg:text-2xl"
+                      : "text-gray-500 text-lg font-bold lg:text-2xl"
                   }
                 >
                   Postgraduate
@@ -222,7 +239,7 @@ function IndexPage() {
               <button
                 type="button"
                 tabIndex={0}
-                className="flex flex-row gap-10 relative items-center"
+                className="flex flex-row gap-2 relative items-center lg:gap-10"
                 key={3}
                 onClick={() => handleRoleClick(3)}
               >
@@ -243,19 +260,50 @@ function IndexPage() {
                 <h4
                   className={
                     activeRoleIndex === 3
-                      ? "text-oceanBlue text-2xl font-bold "
-                      : "text-gray-500 text-2xl"
+                      ? "text-oceanBlue text-lg font-bold lg:text-2xl"
+                      : "text-gray-500 text-lg font-bold lg:text-2xl"
                   }
                 >
                   Sport
                 </h4>
               </button>
+              <button
+                type="button"
+                tabIndex={0}
+                className="flex flex-row gap-2 relative items-center lg:gap-10"
+                key={4}
+                onClick={() => handleRoleClick(4)}
+              >
+                <svg
+                  className={
+                    activeRoleIndex === 4
+                      ? "h-5 w-5 overflow-visible lg:block  stroke-blue-500 fill-blue-500"
+                      : "h-5 w-5 overflow-visible lg:block  stroke-blue-500 fill-transparent"
+                  }
+                  viewBox="0 0 6 6"
+                >
+                  <path
+                    strokeLinejoin="round"
+                    strokeWidth="0.5"
+                    d="M3 0l3 3-3 3-3-3z"
+                  />
+                </svg>
+                <h4
+                  className={
+                    activeRoleIndex === 4
+                      ? "text-oceanBlue text-lg font-bold lg:text-2xl"
+                      : "text-gray-500 text-lg font-bold lg:text-2xl"
+                  }
+                >
+                  Activities
+                </h4>
+              </button>
             </div>
             {/* Right Side */}
-            <div className="flex flex-row space-x-10">
-              {roles[activeRoleIndex].people.map((people) => (
-                <div className="flex flex-col space-y-2 text-center">
-                  <div className=" w-[300px] aspect-[4/5]">
+            <div className="flex flex-col space-x-auto mt-6 lg:space-x-10 lg:flex-row">
+              {roles[activeRoleIndex].people.map((people, index) => (
+                <div className="flex flex-col space-y-2 text-center mx-auto" key={index}>
+                  <div className=" w-[250px] aspect-[4/5]">
                     <img
                       src={people.image}
                       className="rounded-[20px] p-2 h-full object-cover hover:scale-105 transform transition-all duration-500 ease-in-out"

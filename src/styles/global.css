@@ -52,7 +52,7 @@ body {
   background-image: url("../assets/images/home/bg-tablet-pattern.svg");
   background-repeat: no-repeat;
   background-size: 800px;
-  background-position: 90% 150%;
+  background-position: top right;
 }
 
 @media screen and (max-width: 768px) {

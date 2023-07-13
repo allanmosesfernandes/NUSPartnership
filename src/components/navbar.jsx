@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
     <nav
-      className="fixed left-0 right-0 top-0  flex w-full p-2 justify-between items-center mx-auto md:p-6 shadow-md bg-indigo-50 z-10"
+      className="fixed left-0 right-0 top-0 z-100 flex w-full p-2 justify-between items-center mx-auto md:p-6 shadow-md bg-indigo-50 z-10"
     >
       {/* Logo */}
       <Link to="/">

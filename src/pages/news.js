@@ -15,6 +15,7 @@ const news = ({ data }) => {
           // Loop through posts
           posts.map((post, index) => (
             <div className="grid grid-cols-[1fr_2fr_1fr] mb-4">
+              {/* <GatsbyImage image={} /> */}
               <p>
                 {index < 10 ? `0${index + 1}` : index}
                 .

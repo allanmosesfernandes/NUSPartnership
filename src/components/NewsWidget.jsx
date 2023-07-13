@@ -5,6 +5,30 @@ import React from "react";
 
 function NewsWidget() {
   /* Fetch News from wordpress backend */
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      allWpPost(limit: 3, sort: { date: DESC }) {
+        nodes {
+          date(formatString: "MMMM DD, YYYY")
+          id
+          slug
+          title
+          featuredImage {
+            node {
+              gatsbyImage(
+                layout: CONSTRAINED
+                width: 900
+                height: 200
+                fit: COVER
+              )
+            }
+          }
+        }
+      }
+    }
+  `);
+  const posts = data.allWpPost.nodes;
+
   return (
     <section>
       <div className="flex flex-col space-y-5 mt-20 p-4 md:p-12">
@@ -12,16 +36,22 @@ function NewsWidget() {
           Latest News
         </h2>
         <div className="grid grid-cols-3 gap-6">
-          {/* {posts.map((post) => (
+          {posts.map((post) => (
             <div
               key={post.id}
               className="flex flex-col space-y-2 h-full shadow-2xl"
             >
+              <div>
+                <GatsbyImage
+                  image={post.featuredImage.node.gatsbyImage}
+                  alt="post"
+                />
+              </div>
               <h3 className="text-oceanBlue text-xl font-bold font-body sm:text-xl text-left">
                 {post.title}
               </h3>
             </div>
-          ))} */}
+          ))}
         </div>
         <Link to="/news" className="mx-auto mt-4">
           <button

@@ -16,13 +16,11 @@ const news = ({ data }) => {
           // Loop through posts
           posts.map((post, index) => (
             <div className="cursor-pointer grid font-body grid-cols-[1fr_2fr_1fr] w-[80%] mx-auto mb-4 items-center p-6 border-b-[1px] border-slate-500">
-              {/* <GatsbyImage image={} /> */}
               <p className="text-oceanBlue font-semibold">
                 {index < 10 ? `0${index + 1}` : index}
                 .
               </p>
               <div>
-                {/* <img src="https://via.placeholder.com/200" alt="post" /> */}
                 <GatsbyImage
                   image={post.featuredImage.node.gatsbyImage}
                   alt="post"

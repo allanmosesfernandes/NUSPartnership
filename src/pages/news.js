@@ -15,7 +15,7 @@ const news = ({ data }) => {
         {
           // Loop through posts
           posts.map((post, index) => (
-            <div className="grid font-body grid-cols-[1fr_2fr_1fr] w-[80%] mx-auto mb-4 items-center p-6 border-b-[1px] border-slate-500">
+            <div className="cursor-pointer grid font-body grid-cols-[1fr_2fr_1fr] w-[80%] mx-auto mb-4 items-center p-6 border-b-[1px] border-slate-500">
               {/* <GatsbyImage image={} /> */}
               <p className="text-oceanBlue font-semibold">
                 {index < 10 ? `0${index + 1}` : index}
@@ -23,10 +23,15 @@ const news = ({ data }) => {
               </p>
               <div>
                 {/* <img src="https://via.placeholder.com/200" alt="post" /> */}
-                <GatsbyImage image={post.featuredImage.node.gatsbyImage} alt="post" />
+                <GatsbyImage
+                  image={post.featuredImage.node.gatsbyImage}
+                  alt="post"
+                />
               </div>
               <h2 className="flex flex-col gap-4 font-semibold text-2xl">
-                <span className="font-medium text-lg text-slate-500">{post.date}</span>
+                <span className="w-fit px-4 py-2 rounded-full border-slate-500 border-2 font-medium text-lg text-slate-500">
+                  {post.date}
+                </span>
                 {post.title}
               </h2>
             </div>

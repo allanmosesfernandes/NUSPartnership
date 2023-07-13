@@ -8,6 +8,10 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-postcss",
+    //Images
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     //Google Fonts//
     {
       resolve: `gatsby-omni-font-loader`,
@@ -23,6 +27,12 @@ module.exports = {
             file: `https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap`,
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: `https://blog.ankanchittalipi.com/graphql`,
       },
     },
   ],

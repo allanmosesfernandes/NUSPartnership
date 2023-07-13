@@ -3,6 +3,7 @@ import { useState } from "react";
 import presidentNTSU from "../images/people/PRESIDENT.jpg";
 import communityNTSU from "../images/people/COMMUNITY.jpg";
 import sportNTSU from "../images/people/SPORT.jpg";
+import News from "../components/News";
 
 function IndexPage() {
   const roles = [
@@ -89,9 +90,10 @@ function IndexPage() {
     },
   ];
 
+  /* Toggle Visible States between roles */
   const [activeRoleIndex, setActiveRoleIndex] = useState(0);
-  const activeRole = roles[activeRoleIndex];
 
+  /* Pass the index of the role as argument */
   const handleRoleClick = (index) => {
     setActiveRoleIndex(index);
   };
@@ -320,6 +322,8 @@ function IndexPage() {
           </div>
         </div>
       </section>
+      {/* News */}
+      <News />
     </>
   );
 }

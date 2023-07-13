@@ -1,8 +1,8 @@
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 
-function News() {
+function NewsWidget() {
   /* Fetch News from wordpress backend */
 
   const data = useStaticQuery(graphql`
@@ -63,15 +63,17 @@ function News() {
             );
           })}
         </div>
-        <button
-          className="uppercase border-2 border-text-stone font-semibold rounded-sm bg-oceanBlue text-stone-50 py-4 px-14 hover:bg-stone-50 hover:text-oceanBlue w-fit mx-auto mt-10 shadow-box shadow-stone-50"
-          type="button"
-        >
-          Read more
-        </button>
+        <Link to="/news" className="mx-auto mt-4">
+          <button
+            className="uppercase border-2 border-text-stone font-semibold rounded-sm bg-oceanBlue text-stone-50 py-4 px-14 hover:bg-stone-50 hover:text-oceanBlue w-fit mx-auto mt-10 shadow-box shadow-stone-50"
+            type="button"
+          >
+            Read more
+          </button>
+        </Link>
       </div>
     </section>
   );
 }
 
-export default News;
+export default NewsWidget;

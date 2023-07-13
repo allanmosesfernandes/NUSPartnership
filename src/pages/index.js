@@ -3,7 +3,7 @@ import { useState } from "react";
 import presidentNTSU from "../images/people/PRESIDENT.jpg";
 import communityNTSU from "../images/people/COMMUNITY.jpg";
 import sportNTSU from "../images/people/SPORT.jpg";
-import News from "../components/News";
+import News from "../components/NewsWidget";
 
 function IndexPage() {
   const roles = [

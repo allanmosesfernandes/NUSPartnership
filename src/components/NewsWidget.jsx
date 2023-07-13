@@ -15,12 +15,7 @@ function NewsWidget() {
           title
           featuredImage {
             node {
-              gatsbyImage(
-                layout: CONSTRAINED
-                width: 900
-                height: 200
-                fit: COVER
-              )
+              gatsbyImage(layout: CONSTRAINED, width: 800, height: 300)
             }
           }
         }
@@ -39,7 +34,7 @@ function NewsWidget() {
           {posts.map((post) => (
             <div
               key={post.id}
-              className="flex flex-col space-y-2 h-full shadow-2xl"
+              className="flex flex-col space-y-2 h-full"
             >
               <div>
                 <GatsbyImage

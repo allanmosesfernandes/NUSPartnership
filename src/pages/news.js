@@ -1,10 +1,11 @@
-import React from "react";
 import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import React from "react";
 
 const news = ({ data }) => {
-  // Fetch data from GraphQL query
+  // Fetch posts from WP
   const posts = data.allWpPost.nodes;
-
+  console.log(posts);
   return (
     <div className="mt-40 px-4">
       <h2 className="text-oceanBlue text-4xl font-bold my-auto items-center font-body sm:text-5xl">
@@ -14,14 +15,18 @@ const news = ({ data }) => {
         {
           // Loop through posts
           posts.map((post, index) => (
-            <div className="grid grid-cols-[1fr_2fr_1fr] mb-4">
+            <div className="grid font-body grid-cols-[1fr_2fr_1fr] w-[80%] mx-auto mb-4 items-center p-6 border-b-[1px] border-slate-500">
               {/* <GatsbyImage image={} /> */}
-              <p>
+              <p className="text-oceanBlue font-semibold">
                 {index < 10 ? `0${index + 1}` : index}
                 .
               </p>
-              <h2 className="flex flex-col">
-                <span>{post.date}</span>
+              <div>
+                {/* <img src="https://via.placeholder.com/200" alt="post" /> */}
+                <GatsbyImage image={post.featuredImage.node.gatsbyImage} alt="post" />
+              </div>
+              <h2 className="flex flex-col gap-4 font-semibold text-2xl">
+                <span className="font-medium text-lg text-slate-500">{post.date}</span>
                 {post.title}
               </h2>
             </div>
@@ -42,7 +47,7 @@ export const query = graphql`
         title
         featuredImage {
           node {
-            gatsbyImage(height: 100)
+            gatsbyImage(layout: CONSTRAINED, height: 200, width: 200, fit: COVER)
           }
         }
       }

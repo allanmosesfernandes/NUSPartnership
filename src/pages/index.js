@@ -1,11 +1,12 @@
 import * as React from "react";
 import { useState } from "react";
+import { graphql } from "gatsby";
 import presidentNTSU from "../images/people/PRESIDENT.jpg";
 import communityNTSU from "../images/people/COMMUNITY.jpg";
 import sportNTSU from "../images/people/SPORT.jpg";
 import News from "../components/NewsWidget";
 
-function IndexPage() {
+function IndexPage( { data }) {
   const roles = [
     {
       title: "UDO",
@@ -323,9 +324,26 @@ function IndexPage() {
         </div>
       </section>
       {/* News */}
-      <News />
+      <News data={data} />
     </>
   );
 }
+export const query = graphql`
+  query MyQuery {
+    allWpPost(limit: 3) {
+      nodes {
+        date(formatString: "MMMM DD,YYYY")
+        slug
+        title
+        id
+        featuredImage {
+          node {
+            gatsbyImage(height: 200)
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

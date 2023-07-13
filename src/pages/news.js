@@ -41,7 +41,7 @@ export const query = graphql`
         title
         featuredImage {
           node {
-            gatsbyImage(height: 50)
+            gatsbyImage(height: 100)
           }
         }
       }

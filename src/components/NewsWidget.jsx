@@ -1,31 +1,10 @@
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 
-function NewsWidget() {
-  /* Fetch News from wordpress backend */
-
-  const data = useStaticQuery(graphql`
-    query MyQuery {
-      allWpPost(limit: 3, sort: { fields: date, order: DESC }) {
-        nodes {
-          slug
-          id
-          title
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(height: 200)
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+function NewsWidget({ data }) {
   const posts = data.allWpPost.nodes;
+  console.log(posts);
   return (
     <section className="bg-oceanBlue">
       <div className="flex flex-col mt-20 p-4 md:p-12">
@@ -33,26 +12,30 @@ function NewsWidget() {
           Latest News
         </h2>
         <div className="grid grid-cols-3 gap-6 my-16">
-          {posts.map((post) => (
-            <div
-              key={post.id}
-              className="flex flex-col space-y-2 h-full shadow-2xl text-stone-50"
-            >
-              <GatsbyImage
-                image={getImage(post.featuredImage.node.localFile)}
-                alt={post.title}
-                className="min-h-full"
-              />
+          {posts.map((post) => {
+            const image = getImage(post.featuredImage.node.localFile);
 
-              <h3 className="text-lg font-bold font-body sm:text-lg text-left">
-                {post.title}
-              </h3>
-              <p className="flex font-medium gap-3 italic relative items-center">
-                <span className="dash" />
-                {post.date}
-              </p>
-            </div>
-          ))}
+            return (
+              <div
+                key={post.id}
+                className="flex flex-col space-y-2 h-full shadow-2xl text-stone-50"
+              >
+                <GatsbyImage
+                  image={image}
+                  alt={post.title}
+                  className="min-h-full"
+                />
+
+                <h3 className="text-lg font-bold font-body sm:text-lg text-left">
+                  {post.title}
+                </h3>
+                <p className="flex font-medium gap-3 italic relative items-center">
+                  <span className="dash" />
+                  {post.date}
+                </p>
+              </div>
+            );
+          })}
         </div>
         <Link to="/news" className="mx-auto mt-4">
           <button

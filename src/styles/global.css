@@ -55,6 +55,12 @@ body {
   background-position: top right;
 }
 
+.bg-svg {
+  background-image: url("../assets/images/home/bg-tablet-pattern.svg");
+  background-size: 300px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
 @media screen and (max-width: 768px) {
   body {
     background-size: 300px;

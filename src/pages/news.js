@@ -5,7 +5,6 @@ import React from "react";
 const news = ({ data }) => {
   // Fetch posts from WP
   const posts = data.allWpPost.nodes;
-  console.log(posts);
   return (
     <div className="mt-40 px-4">
       <h2 className="text-oceanBlue text-4xl font-bold my-auto items-center font-body sm:text-5xl">
@@ -15,7 +14,7 @@ const news = ({ data }) => {
         {
           // Loop through posts
           posts.map((post, index) => (
-            <div className="cursor-pointer grid font-body grid-cols-[1fr_2fr_1fr] w-[80%] mx-auto mb-4 items-center p-6 border-b-[1px] border-slate-500">
+            <div className="cursor-pointer flex flex-col font-body grid-cols-1 gap-4  items-baseline md:items-center md:grid md:grid-cols-[1fr_2fr_1fr] w-full md:w-[80%] mx-auto mb-4 p-6 border-b-[1px] border-slate-500">
               <p className="text-oceanBlue font-semibold">
                 {index < 10 ? `0${index + 1}` : index}
                 .
@@ -24,6 +23,9 @@ const news = ({ data }) => {
                 <GatsbyImage
                   image={post.featuredImage.node.gatsbyImage}
                   alt="post"
+                  layout="constrained"
+                  height={300}
+                  objectFit="contain"
                 />
               </div>
               <h2 className="flex flex-col gap-4 font-semibold text-2xl">
@@ -50,7 +52,7 @@ export const query = graphql`
         title
         featuredImage {
           node {
-            gatsbyImage(layout: CONSTRAINED, height: 200, width: 200, fit: COVER)
+            gatsbyImage(layout: CONSTRAINED, height: 200, fit: CONTAIN)
           }
         }
       }

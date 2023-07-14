@@ -38,7 +38,7 @@ function NewsWidget(props) {
         </div>
         <Link to="/news" className="mx-auto mt-4">
           <button
-            className="uppercase border-2 border-text-stone font-semibold rounded-sm bg-oceanBlue text-stone-50 py-4 px-14 hover:bg-stone-50 hover:text-oceanBlue w-fit mx-auto mt-10 shadow-box shadow-stone-50"
+            className="uppercase border-2 border-text-stone font-semibold rounded-sm bg-oceanBlue text-stone-50 py-4 px-14 hover:bg-stone-50 hover:text-oceanBlue w-fit mx-auto mt-10 shadow-box shadow-stone-50 shadow-4xl transition duration-150 ease-in hover:ease-in"
             type="button"
           >
             Read more

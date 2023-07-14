@@ -16,6 +16,9 @@ module.exports = {
     fontFamily: {
       body: ["DM Sans", "sans-serif"],
     },
+    boxShadow: {
+      "4xl": "2px 2px 0 0 #2563EC",
+    },
     extend: {
       colors: {
         nspNavy: "#2563EB",

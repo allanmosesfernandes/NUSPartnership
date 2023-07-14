@@ -3,7 +3,7 @@ const path = require("path");
 
 async function turnPostsIntoPages({ graphql, actions }) {
 // 1. Get a template for this page
-  const postTemplate = path.resolve("./src/templates/Post.js");
+  const postTemplate = path.resolve("./src/templates/SingleBlog.js");
 
   // 2. Query all posts
   const { data } = await graphql(`

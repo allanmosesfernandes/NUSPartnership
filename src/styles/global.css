@@ -54,6 +54,9 @@ body {
   background-size: 800px;
   background-position: top right;
 }
+.marginTop {
+  margin-top: 150px;
+}
 
 .bg-svg {
   background-image: url("../assets/images/home/bg-tablet-pattern.svg");
@@ -66,4 +69,9 @@ body {
     background-size: 300px;
     background-position: 80% 0%;
   }
+}
+
+.wp-content-img .wp-block-image{
+  display: flex;
+  margin: 2rem 0;
 }

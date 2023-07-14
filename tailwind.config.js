@@ -4,6 +4,7 @@ module.exports = {
   content: [
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
+    "./src/templates/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     screens: {
@@ -21,6 +22,9 @@ module.exports = {
         nspTeal: "06AFA6",
         nspOrange: "#EF9f69",
         oceanBlue: "#2563EC",
+      },
+      margin: {
+        100: "25rem",
       },
       backgroundImage: {
         "hero-pattern": "url('./assets/images/home/bg-tablet-pattern.svg')",

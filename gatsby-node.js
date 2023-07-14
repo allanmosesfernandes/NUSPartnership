@@ -22,7 +22,7 @@ async function turnPostsIntoPages({ graphql, actions }) {
   data.allWpPost.nodes.forEach((post) => {
     actions.createPage({
       // What is the URL for this new page??
-      path: post.slug,
+      path: `news/${post.slug}`,
       component: postTemplate,
       context: {
         id: post.id,

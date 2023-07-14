@@ -14,24 +14,26 @@ function NewsWidget(props) {
         </h2>
         <div className="grid grid-cols-3 gap-6">
           {posts.map((post) => (
-            <div
-              key={post.id}
-              className="flex flex-col space-y-2 h-full bg-white rounded-br-[50px] cursor-pointer hover:shadow-box hover:shadow-stone-50"
-            >
-              <div>
-                <GatsbyImage
-                  image={post.featuredImage.node.gatsbyImage}
-                  alt="post"
-                  className="h-[300px] rounded-md shadow-box shadow-stone-50"
-                />
+            <Link to={`news/${post.slug}`}>
+              <div
+                key={post.id}
+                className="flex flex-col space-y-2 h-full bg-white rounded-br-[50px] cursor-pointer hover:shadow-box hover:shadow-stone-50"
+              >
+                <div>
+                  <GatsbyImage
+                    image={post.featuredImage.node.gatsbyImage}
+                    alt="post"
+                    className="h-[300px] rounded-md shadow-box shadow-stone-50"
+                  />
+                </div>
+                <div className="p-6 flex flex-col space-between space-y-6">
+                  <p>{post.date}</p>
+                  <h3 className="text-oceanBlue text-lg font-bold font-body sm:text-xl text-left">
+                    {post.title}
+                  </h3>
+                </div>
               </div>
-              <div className="p-6 flex flex-col space-between space-y-6">
-                <p>{post.date}</p>
-                <h3 className="text-oceanBlue text-lg font-bold font-body sm:text-xl text-left">
-                  {post.title}
-                </h3>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
         <Link to="/news" className="mx-auto mt-4">

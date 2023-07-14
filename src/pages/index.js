@@ -4,9 +4,9 @@ import { graphql } from "gatsby";
 import presidentNTSU from "../images/people/PRESIDENT.jpg";
 import communityNTSU from "../images/people/COMMUNITY.jpg";
 import sportNTSU from "../images/people/SPORT.jpg";
-import News from "../components/NewsWidget";
+import NewsWidget from "../components/NewsWidget";
 
-function IndexPage( { data }) {
+function IndexPage({ data }) {
   const roles = [
     {
       title: "UDO",
@@ -303,9 +303,12 @@ function IndexPage( { data }) {
               </button>
             </div>
             {/* Right Side */}
-            <div className="flex flex-col space-x-auto mt-6 lg:space-x-10 lg:flex-row">
+            <div className="flex flex-col space-x-auto mt-6 lg:space-x-10 md:flex-row">
               {roles[activeRoleIndex].people.map((people, index) => (
-                <div className="flex flex-col space-y-2 text-center mx-auto" key={index}>
+                <div
+                  className="flex flex-col space-y-2 text-center mx-auto"
+                  key={index}
+                >
                   <div className=" w-[250px] aspect-[4/5]">
                     <img
                       src={people.image}
@@ -324,7 +327,7 @@ function IndexPage( { data }) {
         </div>
       </section>
       {/* News */}
-      <News data={data} />
+      <NewsWidget data={data} />
     </>
   );
 }
@@ -338,12 +341,11 @@ export const query = graphql`
         id
         featuredImage {
           node {
-            gatsbyImage(height: 200)
+            gatsbyImage(layout: FULL_WIDTH, height: 400, fit: CONTAIN)
           }
         }
       }
     }
   }
 `;
-
 export default IndexPage;

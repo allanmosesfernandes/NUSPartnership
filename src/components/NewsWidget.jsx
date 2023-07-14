@@ -3,48 +3,34 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 // eslint-disable-next-line import/no-duplicates
 
-function NewsWidget() {
-  /* Fetch News from wordpress backend */
-  const data = useStaticQuery(graphql`
-    query MyQuery {
-      allWpPost(limit: 3, sort: { date: DESC }) {
-        nodes {
-          date(formatString: "MMMM DD, YYYY")
-          id
-          slug
-          title
-          featuredImage {
-            node {
-              gatsbyImage(layout: CONSTRAINED, width: 800, height: 300)
-            }
-          }
-        }
-      }
-    }
-  `);
-  const posts = data.allWpPost.nodes;
-
+function NewsWidget(props) {
+  // Hook for querying data
+  const posts = props.data.allWpPost.nodes;
   return (
     <section>
-      <div className="flex flex-col space-y-5 mt-20 p-4 md:p-12">
-        <h2 className="text-oceanBlue text-5xl font-bold font-body sm:text-5xl text-left">
+      <div className="flex flex-col space-y-10 mt-20 p-4 md:p-12 font-body bg-oceanBlue">
+        <h2 className="text-stone-50 text-5xl font-bold font-body sm:text-5xl text-left">
           Latest News
         </h2>
         <div className="grid grid-cols-3 gap-6">
           {posts.map((post) => (
             <div
               key={post.id}
-              className="flex flex-col space-y-2 h-full"
+              className="flex flex-col space-y-2 h-full bg-white rounded-br-[50px] cursor-pointer hover:shadow-box hover:shadow-stone-50"
             >
               <div>
                 <GatsbyImage
                   image={post.featuredImage.node.gatsbyImage}
                   alt="post"
+                  className="h-[300px] rounded-md shadow-box shadow-stone-50"
                 />
               </div>
-              <h3 className="text-oceanBlue text-xl font-bold font-body sm:text-xl text-left">
-                {post.title}
-              </h3>
+              <div className="p-6 flex flex-col space-between space-y-6">
+                <p>{post.date}</p>
+                <h3 className="text-oceanBlue text-lg font-bold font-body sm:text-xl text-left">
+                  {post.title}
+                </h3>
+              </div>
             </div>
           ))}
         </div>

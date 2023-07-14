@@ -8,31 +8,29 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-postcss",
-    //Images
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    //Google Fonts//
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     {
-      resolve: `gatsby-omni-font-loader`,
+      resolve: "gatsby-omni-font-loader",
       options: {
         enableListener: true,
         preconnect: [
-          `https://fonts.googleapis.com`,
-          `https://fonts.gstatic.com`,
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
         ],
         web: [
           {
-            name: `DM Sans`,
-            file: `https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap`,
+            name: "DM Sans",
+            file: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap",
           },
         ],
       },
     },
     {
-      resolve: `gatsby-source-wordpress`,
+      resolve: "gatsby-source-wordpress",
       options: {
-        url: `https://blog.ankanchittalipi.com/graphql`,
+        url: "https://blog.ankanchittalipi.com/graphql",
       },
     },
   ],

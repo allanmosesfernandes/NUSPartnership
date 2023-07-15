@@ -6,6 +6,7 @@ import communityNTSU from "../images/people/COMMUNITY.jpg";
 import sportNTSU from "../images/people/SPORT.jpg";
 import NewsWidget from "../components/NewsWidget";
 import SEO from "../components/SEO";
+import ShareImage from "../assets/images/share.png";
 
 function IndexPage({ data }) {
   const roles = [
@@ -352,5 +353,5 @@ export const query = graphql`
 export default IndexPage;
 
 export function Head() {
-  return <SEO />;
+  return <SEO image={ShareImage} />;
 }

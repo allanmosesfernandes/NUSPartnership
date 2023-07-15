@@ -1,5 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import favicon from "../assets/images/favicon/apple-touch-icon.png";
+import PreviewImage from "../assets/images/share.png";
 
 function SEO({ title, description, image }) {
   // Using static query fetch site metadata
@@ -20,7 +22,7 @@ function SEO({ title, description, image }) {
   const seo = {
     title: title || siteMetadata.title,
     description: description || siteMetadata.description,
-    image: `${image || "../images/share.png"}`,
+    image: `${image || PreviewImage}`,
   };
 
   return (
@@ -31,7 +33,7 @@ function SEO({ title, description, image }) {
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {/* Favicon */}
-      <link rel="icon" href="../images/favicon/favicon.ico" />
+      <link rel="icon" href={favicon} />
     </>
   );
 }

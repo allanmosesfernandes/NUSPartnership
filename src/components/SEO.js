@@ -20,14 +20,18 @@ function SEO({ title, description, image }) {
   const seo = {
     title: title || siteMetadata.title,
     description: description || siteMetadata.description,
-    image: `${siteMetadata.siteUrl}${image || "/images/logo.png"}`,
+    image: `${image || "../images/share.png"}`,
   };
 
   return (
     <>
+      <meta charSet="utf-8" />
+      <meta name="robots" content="index, follow" />
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
+      {/* Favicon */}
+      <link rel="icon" href="../images/favicon/favicon.ico" />
     </>
   );
 }

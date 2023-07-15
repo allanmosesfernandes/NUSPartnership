@@ -5,6 +5,7 @@ import presidentNTSU from "../images/people/PRESIDENT.jpg";
 import communityNTSU from "../images/people/COMMUNITY.jpg";
 import sportNTSU from "../images/people/SPORT.jpg";
 import NewsWidget from "../components/NewsWidget";
+import SEO from "../components/SEO";
 
 function IndexPage({ data }) {
   const roles = [
@@ -349,6 +350,7 @@ export const query = graphql`
   }
 `;
 export default IndexPage;
-export function Head({ title }) {
-  return <title>{title ? `${title}` : "NUS Partnership"}</title>;
+
+export function Head() {
+  return <SEO />;
 }

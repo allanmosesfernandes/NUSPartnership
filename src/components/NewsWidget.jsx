@@ -14,11 +14,8 @@ function NewsWidget(props) {
         </h2>
         <div className="grid grid-cols-3 gap-6">
           {posts.map((post) => (
-            <Link to={`news/${post.slug}`}>
-              <div
-                key={post.id}
-                className="flex flex-col space-y-2 h-full bg-white rounded-br-[50px] cursor-pointer hover:shadow-box hover:shadow-stone-50"
-              >
+            <Link to={`news/${post.slug}`} key={post.id}>
+              <div className="flex flex-col space-y-2 h-full bg-white rounded-br-[50px] cursor-pointer hover:shadow-box hover:shadow-stone-50">
                 <div>
                   <GatsbyImage
                     image={post.featuredImage.node.gatsbyImage}

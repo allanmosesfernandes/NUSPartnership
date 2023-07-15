@@ -23,7 +23,7 @@ function Navbar() {
         <Link to="/who-we-are" className="hover:text-blue-500">
           People
         </Link>
-        <Link to="/what-we-do" className="hover:text-blue-500">
+        <Link to="/news" className="hover:text-blue-500">
           News
         </Link>
         <Link to="/contact" className="hover:text-blue-500">
@@ -63,7 +63,7 @@ function Navbar() {
         <Link to="/about" className="block py-4 text-center">
           About
         </Link>
-        <Link to="/about" className="block py-4 text-center">
+        <Link to="/news" className="block py-4 text-center">
           News
         </Link>
         <Link to="/about" className="block py-4 text-center">

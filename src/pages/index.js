@@ -349,3 +349,6 @@ export const query = graphql`
   }
 `;
 export default IndexPage;
+export function Head({ title }) {
+  return <title>{title ? `${title}` : "NUS Partnership"}</title>;
+}

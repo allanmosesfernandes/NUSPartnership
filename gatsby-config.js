@@ -3,8 +3,9 @@
  */
 module.exports = {
   siteMetadata: {
-    // siteUrl: `https://www.yourdomain.tld`,
-    title: "NSP Partners",
+    siteUrl: "https://www.yourdomain.tld",
+    title: "Nottingham Student Partnership",
+    description: " The Nottingham Students Partnership is a joint venture between the University of Nottingham Students’ Union and Nottingham Trent Students' Union to represent the interests of students in the City of Nottingham",
   },
   plugins: [
     "gatsby-plugin-postcss",

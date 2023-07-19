@@ -13,7 +13,7 @@ import Uon from "../assets/images/socials/UoN-col.png";
 function SocialMedia() {
   return (
     <div className="flex flex-col font-body pt-20">
-      <h1 className="text-center text-oceanBlue text-5xl font-bold font-body sm:text-5xl">
+      <h1 className="text-center text-oceanBlue font-bold font-body text-3xl sm:text-5xl">
         Follow us on Socials
       </h1>
       {/* Socials Grid */}
@@ -86,7 +86,7 @@ function SocialMedia() {
           </div>
         </div>
         {/* UONSU */}
-        <div className="flex flex-col lg:flex-row justify-between mx-auto mt-4 w-[90%] lg:w-[80%] border-b-2 border-gray-300">
+        <div className="flex flex-col lg:flex-row justify-between mx-auto mt-4 w-[90%] lg:w-[80%]">
           <h3 className="text-4xl text-oceanBlue font-semibold mb-6 flex gap-4 mx-auto my-2 lg:mx-0">
             <img src={Uon} alt="UoN logo" className="w-[200px]" />
           </h3>

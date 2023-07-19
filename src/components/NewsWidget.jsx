@@ -9,7 +9,7 @@ function NewsWidget(props) {
   return (
     <section>
       <div className="flex flex-col space-y-10 mt-20 p-4 md:p-12 font-body bg-oceanBlue">
-        <h2 className="text-stone-50 text-5xl font-bold font-body sm:text-5xl text-left">
+        <h2 className="text-stone-50 text-3xl font-bold font-body sm:text-5xl text-left">
           Latest News
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

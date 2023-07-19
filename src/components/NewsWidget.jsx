@@ -12,7 +12,7 @@ function NewsWidget(props) {
         <h2 className="text-stone-50 text-5xl font-bold font-body sm:text-5xl text-left">
           Latest News
         </h2>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <Link to={`news/${post.slug}`} key={post.id}>
               <div className="flex flex-col space-y-2 h-full bg-white rounded-br-[50px] cursor-pointer hover:shadow-box hover:shadow-stone-50">

@@ -7,6 +7,7 @@ import sportNTSU from "../images/people/SPORT.jpg";
 import NewsWidget from "../components/NewsWidget";
 import SEO from "../components/SEO";
 import ShareImage from "../assets/images/share.png";
+import SocialMedia from "../components/SocialMedia";
 
 function IndexPage({ data }) {
   const roles = [
@@ -330,6 +331,8 @@ function IndexPage({ data }) {
       </section>
       {/* News */}
       <NewsWidget data={data} />
+      {/* Social Media Links */}
+      <SocialMedia />
     </>
   );
 }

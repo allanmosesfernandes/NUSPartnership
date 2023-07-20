@@ -12,11 +12,11 @@ function Navbar() {
 
   return (
     <nav
-      className="fixed font-body left-0 right-0 top-0 z-100 flex w-full p-2 justify-between items-center mx-auto md:p-6 shadow-md bg-indigo-50 z-10"
+      className="shadow-glossy fixed font-body left-0 right-0 top-0 z-100 flex w-full p-2 justify-between items-center mx-auto md:p-6 shadow-md bg-indigo-50 z-10"
     >
       {/* Logo */}
       <Link to="/">
-        <img src={logo} alt="logo" className="h-20" />
+        <img src={logo} alt="logo" className="h-14" />
       </Link>
       {/* Menu */}
       <div className="hidden md:flex items-center space-x-8 font-body font-semibold text-lg uppercase text-oceanBlue">

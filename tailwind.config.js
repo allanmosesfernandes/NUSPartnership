@@ -18,12 +18,13 @@ module.exports = {
     },
     boxShadow: {
       "4xl": "2px 2px 0 0 #2563EC",
+      glossy: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
     },
     extend: {
       colors: {
         nspNavy: "#2563EB",
-        nspTeal: "06AFA6",
-        nspOrange: "#EF9f69",
+        nspTeal: "#06AFA6", // Make sure to add # symbol before the hex value
+        nspOrange: "#EF9f69", // Make sure to add # symbol before the hex value
         oceanBlue: "#2563EC",
       },
       margin: {

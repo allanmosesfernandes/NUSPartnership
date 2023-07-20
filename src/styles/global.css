@@ -51,11 +51,8 @@ body {
 body {
   background-image: url("../assets/images/home/bg-tablet-pattern.svg");
   background-repeat: no-repeat;
-  background-size: 800px;
-  background-position: top right;
-}
-.marginTop {
-  margin-top: 150px;
+  background-size: 382px;
+  background-position: 90% 4%;
 }
 
 .bg-svg {

@@ -29,8 +29,6 @@ async function turnPostsIntoPages({ graphql, actions }) {
       },
     });
   });
-
-  console.log(data);
 }
 
 exports.createPages = async (params) => {

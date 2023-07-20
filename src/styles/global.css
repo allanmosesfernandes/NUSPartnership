@@ -52,7 +52,7 @@ body {
   background-image: url("../assets/images/home/bg-tablet-pattern.svg");
   background-repeat: no-repeat;
   background-size: 382px;
-  background-position: 90% 4%;
+  background-position: -90% 4%;
 }
 
 .bg-svg {
@@ -63,8 +63,8 @@ body {
 }
 @media screen and (max-width: 768px) {
   body {
-    background-size: 300px;
-    background-position: 80% 0%;
+    background-size: 250px;
+    background-position: 80% -20%;
   }
 }
 .line::before {
@@ -81,3 +81,18 @@ body {
   display: flex;
   margin: 2rem auto;
 }
+
+/* tailwind.css (or your custom CSS file) */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+

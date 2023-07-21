@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
+import SEO from "../components/SEO";
 
 function SingleBlog({ pageContext, data }) {
   // Get the blog id from the pageContext
@@ -32,6 +33,10 @@ function SingleBlog({ pageContext, data }) {
       </div>
     </>
   );
+}
+
+export function Head({ data }) {
+  return <SEO title={data.wpPost.title} />;
 }
 
 export const query = graphql`

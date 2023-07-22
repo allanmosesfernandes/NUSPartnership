@@ -3,49 +3,49 @@
 @tailwind utilities;
 
 @layer components {
-/* Hamburger Menu */
-body {
+  /* Hamburger Menu */
+  body {
     background-color: #eef2ff;
-}
-.hamburger-icon {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  transition: all 0.25s;
-  position: relative;
-}
-.hamburger-top,
-.hamburger-middle,
-.hamburger-bottom {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 3px;
-  background: #2563EC;
-  transform: rotate(0);
-  transition: all 0.5s;
-}
- 
-.hamburger-middle {
-  transform: translateY(7px);
-}
+  }
+  .hamburger-icon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+  }
+  .hamburger-top,
+  .hamburger-middle,
+  .hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 3px;
+    background: #2563ec;
+    transform: rotate(0);
+    transition: all 0.5s;
+  }
 
-.hamburger-bottom {
-  transform: translateY(14px);
-}
-.open {
-  transform: rotate(90deg);
-  transform: translateY(0px);
-}
+  .hamburger-middle {
+    transform: translateY(7px);
+  }
 
-.open .hamburger-top {
-  transform: rotate(45deg) translateY(6px) translate(6px);
-}
-.open .hamburger-middle {
-  transform: rotate(-45deg) translateY(6px) translate(-6px);
-  opacity: 1;
-}
+  .hamburger-bottom {
+    transform: translateY(14px);
+  }
+  .open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+  }
+
+  .open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+  }
+  .open .hamburger-middle {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
+    opacity: 1;
+  }
 }
 
 body {
@@ -68,16 +68,16 @@ body {
   }
 }
 .line::before {
-    content: "";
-    width: 30px;
-    height: 2px;
-    background: black;
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 50%;
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: black;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
 }
-.wp-content-img .wp-block-image{
+.wp-content-img .wp-block-image {
   display: flex;
   margin: 2rem auto;
 }
@@ -96,3 +96,8 @@ body {
   animation: fadeIn 1s ease-in-out;
 }
 
+
+/* Any anchor with the attribute of disabled should have pointer events none */
+a[disabled] {
+  pointer-events: none;
+}

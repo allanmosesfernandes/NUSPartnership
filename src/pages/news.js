@@ -1,10 +1,14 @@
 import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
+import Pagination from "../components/pagination";
 
-const news = ({ data }) => {
+function News({ data, pageContext }) {
   // Fetch posts from WP
   const posts = data.allWpPost.nodes;
+  const length = posts.length;
+  const { currentPage, postsPerPage, skip, totalPages } = pageContext;
+
   return (
     <div className="mt-40 px-4">
       <h2 className="text-oceanBlue text-4xl font-bold my-auto items-center font-body sm:text-5xl">
@@ -14,10 +18,16 @@ const news = ({ data }) => {
         {
           // Loop through posts
           posts.map((post, index) => (
-            <Link to={post.slug}>
-              <div className="cursor-pointer flex flex-col font-body grid-cols-1 gap-4  items-baseline md:items-center md:grid md:grid-cols-[1fr_2fr_1fr] w-full md:w-[80%] mx-auto mb-4 p-6 border-b-[1px] border-slate-500">
+            <Link to={post.slug} key={post.id}>
+              <div
+                className={`cursor-pointer flex flex-col font-body grid-cols-1 gap-4 items-baseline md:items-center md:grid md:grid-cols-[1fr_2fr_1fr] w-full md:w-[80%] mx-auto mb-4 p-6 ${
+                  index !== posts.length - 1
+                    ? "border-b-[1px] border-slate-500"
+                    : ""
+                }`}
+              >
                 <p className="text-oceanBlue font-semibold">
-                  {index < 10 ? `0${index + 1}` : index}
+                  {index < 10 ? `0${index + 1 + skip} ` : index + { skip }}
                   .
                 </p>
                 <div>
@@ -40,13 +50,21 @@ const news = ({ data }) => {
           ))
         }
       </div>
+      {/* Pagination */}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        postsPerPage={pageContext.postsPerPage}
+        skip={pageContext.skip}
+        base="/news"
+      />
     </div>
   );
-};
-
+}
+export default News;
 export const query = graphql`
-  query MyQuery {
-    allWpPost {
+  query MyQuery($skip: Int = 0, $postsPerPage: Int = 4) {
+    allWpPost(limit: $postsPerPage, skip: $skip) {
       nodes {
         date(formatString: "MMMM DD, YYYY")
         id
@@ -61,5 +79,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default news;

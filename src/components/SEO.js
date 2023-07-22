@@ -34,6 +34,13 @@ function SEO({ title, description, image }) {
       <meta name="image" content={seo.image} />
       {/* Favicon */}
       <link rel="icon" href={favicon} />
+      {/* Open Graph */}
+      <meta property="og:url" content={siteMetadata.siteUrl} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
+      {/* Twitter */}
     </>
   );
 }

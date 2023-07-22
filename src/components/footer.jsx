@@ -5,8 +5,8 @@ import { Link } from 'gatsby';
 function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="flex flex-col font-body items-center mt-20 pt-10 space-y-10 border-t-[2px] border-gray-300">
-      <img src={logo} alt="logo" className="h-20" />
+    <footer className="flex flex-col font-body items-center mt-20 pt-10 space-y-10  border-gray-300">
+      {/* <img src={logo} alt="logo" className="h-20" />
       <div className="flex flex-row items-center space-x-12 font-body font-semibold lg:text-lg text-sm uppercase text-oceanBlue">
         <Link to="/" className="hover:text-blue-500">
           Home
@@ -26,7 +26,7 @@ function Footer() {
         {year}
         {" "}
         All Rights Reserved
-      </p>
+      </p> */}
     </footer>
   );
 }

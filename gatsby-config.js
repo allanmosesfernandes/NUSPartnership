@@ -5,7 +5,8 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
     title: "Nottingham Student Partnership",
-    description: " The Nottingham Students Partnership is a joint venture between the University of Nottingham Students’ Union and Nottingham Trent Students' Union to represent the interests of students in the City of Nottingham",
+    description:
+      " The Nottingham Students Partnership is a joint venture between the University of Nottingham Students’ Union and Nottingham Trent Students' Union to represent the interests of students in the City of Nottingham",
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -25,6 +26,11 @@ module.exports = {
             name: "DM Sans",
             file: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap",
           },
+          {
+            name: "Space Grotesk",
+            file: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap",
+          },
+          // Add more fonts here if needed
         ],
       },
     },

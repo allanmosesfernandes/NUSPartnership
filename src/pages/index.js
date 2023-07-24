@@ -3,9 +3,6 @@ import { graphql } from "gatsby";
 import Fade from "react-reveal/Fade";
 import { useEffect } from "react";
 import { gsap } from "gsap";
-import presidentNTSU from "../images/people/PRESIDENT.jpg";
-import communityNTSU from "../images/people/COMMUNITY.jpg";
-import sportNTSU from "../images/people/SPORT.jpg";
 import NewsWidget from "../components/NewsWidget";
 import SEO from "../components/SEO";
 import ShareImage from "../assets/images/share.png";
@@ -15,10 +12,11 @@ import HomePageBanner from "../assets/images/background.png";
 import NTSU from "../assets/images/home/NTSU.png";
 import UON from "../assets/images/home/UON.png";
 import X from "../assets/images/home/close-thick.svg";
-import XO from "../assets/images/home/iconClose.svg";
+
 import Intro from "../components/intro";
 
 import logo from "../assets/images/navbar/logo.png";
+import People from "../components/People";
 
 function IndexPage({ data }) {
   /* Animation bit that does the magic */
@@ -120,7 +118,7 @@ function IndexPage({ data }) {
         </div>
       </section>
       <section>
-        <div className="container text-blue-900 my-60 relative flex flex-col space-y-5 mx-auto justify-center text-center items-center px-4  sm:w-[70%]">
+        <div className="container text-blue-900 mt-60 mb-30 relative flex flex-col space-y-5 mx-auto justify-center text-center items-center px-4  sm:w-[70%]">
           <Fade bottom>
             <img src={logo} alt="logo" className="w-[200px] mx-auto" />
             <p className="tracking-tight text-xl font-body sm:text-2xl">
@@ -157,6 +155,7 @@ function IndexPage({ data }) {
           </Fade>
         </div>
       </section>
+      <People />
     </>
   );
 }

@@ -56,7 +56,7 @@ function News({ data, pageContext }) {
         totalPages={totalPages}
         postsPerPage={pageContext.postsPerPage}
         skip={pageContext.skip}
-        base="/news"
+        base="news"
       />
     </div>
   );

@@ -155,13 +155,16 @@ function IndexPage({ data }) {
           </Fade>
         </div>
       </section>
+      {/* Who we are x People */}
       <People />
+      {/* News Widget */}
+      <NewsWidget data={data} />
     </>
   );
 }
 export const query = graphql`
   query MyQuery {
-    allWpPost(limit: 3) {
+    allWpPost(limit: 4) {
       nodes {
         date(formatString: "MMMM DD,YYYY")
         slug

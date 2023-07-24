@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import presidentNTSU from "../assets/images/people/PRESIDENT.jpg";
 import communityNTSU from "../assets/images/people/COMMUNITY.jpg";
 import SportNTSU from "../assets/images/people/SPORT.jpg";
+import EmailLogo from "../assets/images/home/email.svg";
+import Fade from "react-reveal/Fade";
 
 function People() {
   /* Update roles or people in the JSON below */
@@ -13,11 +15,13 @@ function People() {
           image: presidentNTSU,
           name: "Anna O'Hara",
           role: "President NTSU",
+          email: "anna.ohara@su.ntu.ac.uk",
         },
         {
           image: communityNTSU,
           name: " Jessica Nuttall",
           role: "Officer UoN SU",
+          email: "jessica.nutall@uon.ntu.ac.uk",
         },
         // Add more people to this role
       ],
@@ -29,11 +33,13 @@ function People() {
           image: communityNTSU,
           name: "John Smith",
           role: "Community",
+          email: "anna.ohara@su.ntu.ac.uk",
         },
         {
           image: communityNTSU,
           name: "Peter Parker",
           role: "Vigilante",
+          email: "anna.ohara@su.ntu.ac.uk",
         },
         // Add more people to this role
       ],
@@ -46,6 +52,7 @@ function People() {
           image: communityNTSU,
           name: "John Smith",
           role: "Community",
+          email: "anna.ohara@su.ntu.ac.uk",
         },
       ],
     },
@@ -56,6 +63,7 @@ function People() {
           image: SportNTSU,
           name: "Joddie Smith",
           role: "Community",
+          email: "anna.ohara@su.ntu.ac.uk",
         },
       ],
     },
@@ -66,10 +74,10 @@ function People() {
           image: SportNTSU,
           name: "John Smith",
           role: "Community",
+          email: "anna.ohara@su.ntu.ac.uk",
         },
       ],
     },
-
   ];
   /* Toggle Visible States between roles */
   const [activeRoleIndex, setActiveRoleIndex] = useState(0);
@@ -81,9 +89,11 @@ function People() {
   return (
     <section id="who-we-are" className="font-body">
       <div className="flex flex-col space-y-5 p-4 md:p-12">
-        <h2 className="text-oceanBlue text-5xl font-bold font-body sm:text-5xl text-left">
-          People
-        </h2>
+        <Fade bottom>
+          <h2 className="text-oceanBlue text-5xl font-bold font-body sm:text-5xl text-left">
+            People
+          </h2>
+        </Fade>
         <div className="text-blue-900 flex flex-col space-y-5">
           <p className="text-gray-600 text-2xl tracking-tight font-semibold">
             Key people & who to contact
@@ -263,10 +273,10 @@ function People() {
               </button>
             </div>
             {/* Right Side */}
-            <div className="flex flex-col space-x-auto mt-6 lg:space-x-10 md:flex-row">
+            <div className="flex flex-col gap-6 space-x-auto mt-6 lg:space-x-10 md:flex-row">
               {people[activeRoleIndex].people.map((people, index) => (
                 <div
-                  className="flex flex-col space-y-2 text-center mx-auto"
+                  className="flex flex-col space-y-2 items-center text-center mx-auto"
                   key={index}
                 >
                   <div className=" w-[250px] aspect-[4/5]">
@@ -279,7 +289,11 @@ function People() {
                   <h4 className="text- text-2xl text-gray-950 font-bold">
                     {people.name}
                   </h4>
-                  <p className="text-xl text-gray-600">{people.people}</p>
+                  <p className="text-xl text-gray-600" title="Click to copy">{people.people}</p>
+                  <p className="text-md text-gray-600">
+                    <img src={EmailLogo} className="inline-block h-6" alt="email" />{" "}
+                    {people.email}
+                  </p>
                 </div>
               ))}
             </div>

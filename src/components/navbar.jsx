@@ -19,7 +19,7 @@ function Navbar() {
         <img src={logo} alt="logo" className="h-14" />
       </Link>
       {/* Menu */}
-      <div className="hidden md:flex items-center space-x-8 font-body font-semibold text-lg uppercase text-oceanBlue">
+      {/* <div className="hidden md:flex items-center space-x-8 font-body font-semibold text-lg uppercase text-oceanBlue">
         <Link to="/who-we-are" className="hover:text-blue-500">
           People
         </Link>
@@ -37,7 +37,7 @@ function Navbar() {
         >
           About
         </button>
-      </Link>
+      </Link> */}
 
       {/* Hamburger */}
       <button

@@ -62,6 +62,9 @@ function News({ data, pageContext }) {
   );
 }
 export default News;
+/* Gatsby Query for fetching news bits from backend */
+/* This data is then passed as props to the NewsWidget */
+
 export const query = graphql`
   query MyQuery($skip: Int = 0, $postsPerPage: Int = 4) {
     allWpPost(limit: $postsPerPage, skip: $skip) {

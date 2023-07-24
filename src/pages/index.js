@@ -15,6 +15,7 @@ import HomePageBanner from "../assets/images/background.png";
 import NTSU from "../assets/images/home/NTSU.png";
 import UON from "../assets/images/home/UON.png";
 import X from "../assets/images/home/close-thick.svg";
+import XO from "../assets/images/home/iconClose.svg";
 import Intro from "../components/intro";
 
 import logo from "../assets/images/navbar/logo.png";
@@ -143,7 +144,7 @@ function IndexPage({ data }) {
               >
                 <img src={NTSU} className="h-[50px]" alt="NTSU" />
               </a>
-              <img src={X} alt="asterik" className="h-[50px]" />
+              <img src={X} alt="asterik" className="h-[30px]" />
               <a
                 href="https://su.nottingham.ac.uk/"
                 target="_blank"

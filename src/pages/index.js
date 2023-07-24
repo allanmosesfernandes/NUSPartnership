@@ -14,6 +14,8 @@ import SocialMedia from "../components/SocialMedia";
 import asterik from "../assets/images/home/icons8-asterisk.svg";
 import HomePageBanner from "../assets/images/background.png";
 import Intro from "../components/intro";
+import logo from "../assets/images/navbar/logo.png";
+
 
 function IndexPage({ data }) {
   /* Animation bit that does the magic */
@@ -115,19 +117,22 @@ function IndexPage({ data }) {
         </div>
       </section>
       <section>
-        <div className="container text-blue-900 relative flex flex-col space-y-5 mx-auto justify-center text-center items-center px-4  sm:w-[70%]">
-          <p className="tracking-tight text-xl font-body sm:text-2xl">
-            The Nottingham Students Partnership is a joint venture between the
-            University of Nottingham Students’ Union and Nottingham Trent
-            Students' Union to represent the interests of students in the City
-            of Nottingham.
-          </p>
-          <p className="tracking-tight text-xl font-body sm:text-2xl">
-            Our members make up about 1/7th of the City’s population, and our
-            aim is that their involvement in the city is as proportional as they
-            are, with us as their students’ unions providing our insight and
-            their voice where we can.
-          </p>
+        <div className="container text-blue-900 my-60 relative flex flex-col space-y-5 mx-auto justify-center text-center items-center px-4  sm:w-[70%]">
+          <Fade bottom>
+            <img src={logo} alt="logo" className="w-[200px] mx-auto" />
+            <p className="tracking-tight text-xl font-body sm:text-2xl">
+              The Nottingham Students Partnership is a joint venture between the
+              University of Nottingham Students’ Union and Nottingham Trent
+              Students' Union to represent the interests of students in the City
+              of Nottingham.
+            </p>
+            <p className="tracking-tight text-xl font-body sm:text-2xl">
+              Our members make up about 1/7th of the City’s population, and our
+              aim is that their involvement in the city is as proportional as they
+              are, with us as their students’ unions providing our insight and
+              their voice where we can.
+            </p>
+          </Fade>
         </div>
       </section>
       <section className="intro">

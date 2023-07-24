@@ -113,6 +113,15 @@ function IndexPage({ data }) {
           </div>
         </div>
       </section>
+      <section className="intro">
+        <div className="intro_wrapper">
+          <div className="intro_row">
+            <div className="intro_row_text">
+              <h1>Nottingham</h1>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

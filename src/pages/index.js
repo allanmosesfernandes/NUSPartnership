@@ -12,6 +12,10 @@ import ShareImage from "../assets/images/share.png";
 import SocialMedia from "../components/SocialMedia";
 import asterik from "../assets/images/home/icons8-asterisk.svg";
 import HomePageBanner from "../assets/images/background.png";
+import NTSU from "../assets/images/home/NTSU.png";
+import UON from "../assets/images/home/UON.png";
+import X from "../assets/images/home/close.svg";
+
 import Intro from "../components/intro";
 import logo from "../assets/images/navbar/logo.png";
 
@@ -131,18 +135,15 @@ function IndexPage({ data }) {
               are, with us as their students’ unions providing our insight and
               their voice where we can.
             </p>
+            <div className="flex flex-row space-x-5 items-center">
+              <img src={NTSU} className="h-[50px]" alt="NTSU" />
+              <img src={X} alt="asterik" className="h-[30px]" />
+              <img src={UON} alt="UON" className="h-[100px]" />
+            </div>
           </Fade>
         </div>
       </section>
-      <section className="intro">
-        <div className="intro_wrapper">
-          <div className="intro_row">
-            <div className="intro_row_text">
-              <h1>Nottingham</h1>
-            </div>
-          </div>
-        </div>
-      </section>
+
     </>
   );
 }

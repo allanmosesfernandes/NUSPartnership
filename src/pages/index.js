@@ -85,32 +85,42 @@ function IndexPage({ data }) {
     // eslint-disable-next-line react/jsx-filename-extension
     <>
       <section className="hero">
-        <div className="hero_wrapper">
-          <div className="hero_media" data-rows="3">
-            <figure className="hero_figure">
-              <img src={HomePageBanner} alt="hero" />
-            </figure>
+      <div className="hero_wrapper">
+        <div className="hero_media" data-rows="3">
+          <figure className="hero_figure">
+            <img src={HomePageBanner} alt="hero" />
+          </figure>
+        </div>
+        <div className="hero_row">
+          <div className="hero_row_text">
+            <h1>Nottingham</h1>
+            <h4 className="opacity-0">Blossoms</h4>
           </div>
-          <div className="hero_row">
-            <div className="hero_row_text">
-              <h1>Nottingham</h1>
-              <h4 className="opacity-0">Blossoms</h4>
-            </div>
-            <div className="hero_row_separator" />
+          <div className="hero_row_separator" />
+        </div>
+        <div className="hero_row">
+          <div className="hero_row_text">
+            <h4 className="opacity-0">Blossoms</h4>
+            <h1>Students</h1>
           </div>
-          <div className="hero_row">
-            <div className="hero_row_text">
-              <h4 className="opacity-0">Blossoms</h4>
-              <h1>Students</h1>
-            </div>
-            <div className="hero_row_separator" />
+          <div className="hero_row_separator" />
+        </div>
+        <div className="hero_row">
+          <div className="hero_row_text">
+            <h1>Partnership</h1>
+            <h4 className="opacity-0">Blossoms</h4>
           </div>
-          <div className="hero_row">
-            <div className="hero_row_text">
-              <h1>Partnership</h1>
-              <h4 className="opacity-0">Blossoms</h4>
-            </div>
-          </div>
+        </div>
+      </div>
+      </section>
+      <section>
+        <div className=" container text-gray-950 h-[100%] relative flex flex-col space-y-5 mx-auto justify-center text-center items-center mt-40 px-4  sm:w-4/5">
+          <h2 className="relative animate-fade-in text-oceanBlue text-6xl font-bold my-auto items-center font-body sm:text-8xl">
+            Nottingham Students Partnership
+          </h2>
+          <p className="tracking-tight text-xl font-body sm:text-2xl">
+            The Nottingham Students Partnership is a joint venture between the
+          </p>
         </div>
       </section>
       <section className="intro">

@@ -57,7 +57,7 @@ body {
   background-repeat: no-repeat;
   background-size: 382px;
   background-position: -90% 4%;
-  background-color: black;
+  background-color: bg-indigo-50;
   color: white;
   overflow-x: hidden;
 }

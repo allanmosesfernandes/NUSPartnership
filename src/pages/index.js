@@ -14,11 +14,10 @@ import asterik from "../assets/images/home/icons8-asterisk.svg";
 import HomePageBanner from "../assets/images/background.png";
 import NTSU from "../assets/images/home/NTSU.png";
 import UON from "../assets/images/home/UON.png";
-import X from "../assets/images/home/close.svg";
-
+import X from "../assets/images/home/close-thick.svg";
 import Intro from "../components/intro";
-import logo from "../assets/images/navbar/logo.png";
 
+import logo from "../assets/images/navbar/logo.png";
 
 function IndexPage({ data }) {
   /* Animation bit that does the magic */
@@ -131,19 +130,32 @@ function IndexPage({ data }) {
             </p>
             <p className="tracking-tight text-xl font-body sm:text-2xl">
               Our members make up about 1/7th of the City’s population, and our
-              aim is that their involvement in the city is as proportional as they
-              are, with us as their students’ unions providing our insight and
-              their voice where we can.
+              aim is that their involvement in the city is as proportional as
+              they are, with us as their students’ unions providing our insight
+              and their voice where we can.
             </p>
             <div className="flex flex-row space-x-5 items-center">
-              <img src={NTSU} className="h-[50px]" alt="NTSU" />
-              <img src={X} alt="asterik" className="h-[30px]" />
-              <img src={UON} alt="UON" className="h-[100px]" />
+              <a
+                href="https://www.trentstudents.org/"
+                target="_blank"
+                rel="noreferrer"
+                title="NTSU"
+              >
+                <img src={NTSU} className="h-[50px]" alt="NTSU" />
+              </a>
+              <img src={X} alt="asterik" className="h-[50px]" />
+              <a
+                href="https://su.nottingham.ac.uk/"
+                target="_blank"
+                rel="noreferrer"
+                title="UON SU"
+              >
+                <img src={UON} alt="UON" className="h-[100px]" />
+              </a>
             </div>
           </Fade>
         </div>
       </section>
-
     </>
   );
 }

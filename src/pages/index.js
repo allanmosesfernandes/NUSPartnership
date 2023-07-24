@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState } from "react";
 import { graphql } from "gatsby";
 import Fade from "react-reveal/Fade";
 import { useEffect } from "react";

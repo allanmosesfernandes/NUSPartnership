@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import Fade from "react-reveal/Fade";
 import presidentNTSU from "../assets/images/people/PRESIDENT.jpg";
 import communityNTSU from "../assets/images/people/COMMUNITY.jpg";
 import SportNTSU from "../assets/images/people/SPORT.jpg";
 import EmailLogo from "../assets/images/home/email.svg";
-import Fade from "react-reveal/Fade";
 
 function People() {
   /* Update roles or people in the JSON below */

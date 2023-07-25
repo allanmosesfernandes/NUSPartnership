@@ -18,6 +18,7 @@
     height: 24px;
     transition: all 0.35s;
     position: relative;
+    z-index: 999;
   }
   .hamburger-top,
   .hamburger-middle,
@@ -27,9 +28,9 @@
     left: 0;
     width: 24px;
     height: 3px;
-    background: #2563ec;
+    background: #fff;
     transform: rotate(0);
-    transition: all 0.5s;
+    transition: all 0.3s;
   }
 
   .hamburger-middle {
@@ -219,3 +220,60 @@ a[disabled] {
   .gatsby-image-wrapper {
     position: relative;
   }
+
+.menu__custom {
+  position: absolute;
+  transform: translateY(-100%);
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  font-size: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ background: #06AFA6;
+  transition: all 0.3s ease;  
+}
+
+.menu__custom.active {
+  transform: translateY(0);
+  transition: all 0.2s ease;
+}
+
+
+.menu-item {
+  color: #ffffff;
+  transition: opacity 400ms ease;
+  z-index: 99;
+}
+
+.menu-item:hover {
+  color: #ffffff;
+}
+
+.menu-items:hover > .menu-item {
+  opacity: 0.3;
+}
+.menu-items:hover > .menu-item:hover {
+  opacity: 1;
+}
+.menu-background-pattern {
+  background-image: radial-gradient(
+    rgba(43, 34, 34, 0.1) 9%, 
+    transparent 9%
+  );
+  background-position: 0% 0%;
+  background-size: 12vmin 12vmin;
+  height: 100vh;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  transition: opacity 800ms ease, background-size 800ms ease;
+  width: 100vw;
+  z-index: 0;
+  pointer-events: none;
+}

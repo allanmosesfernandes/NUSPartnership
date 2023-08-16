@@ -156,7 +156,6 @@ a[disabled] {
   padding: 2rem;
   overflow: hidden;
   font-family: "Space Grotesk", sans-serif !important;
-
 }
 
 .hero_row_text h1 {
@@ -235,7 +234,8 @@ a[disabled] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
- background: #06AFA6;
+  color: #221c35;
+  background: #fff;
   transition: all 0.3s ease;  
 }
 

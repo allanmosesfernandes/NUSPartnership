@@ -98,7 +98,7 @@ function People() {
           <p className="text-gray-600 text-2xl tracking-tight font-semibold">
             Key people & who to contact
           </p>
-          <p className="text-lg w-full lg:w-[70%] lg:text-xl">
+          <p className="text-xl w-full lg:w-[70%]">
             For most enquiries, we would encourage reaching out to our{" "}
             <a
               className="underline font-bold text-blue-900 hover:text-blue-500"

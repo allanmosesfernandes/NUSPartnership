@@ -26,10 +26,10 @@
   .hamburger-bottom {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -10px;
     width: 34px;
-    height: 3px;
-    background: #eab308;
+    height: 1px;
+    background: #fff;
     transform: rotate(0);
     transition: all 0.3s;
   }
@@ -117,7 +117,6 @@ a[disabled] {
 /* Hero Section */
 .hero {
   position: relative;
-  height: 90vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -169,10 +168,10 @@ a[disabled] {
   font-family: "Space Grotesk", sans-serif !important;
 }
 
-.hero_row_text h1 {
+/* .hero_row_text h1 {
   font-size: inherit;
   line-height: 1;
-}
+} */
 
 .hero_row_text h4 {
   font-size: 3rem;
@@ -301,4 +300,10 @@ a[disabled] {
   width: 100vw;
   z-index: 0;
   pointer-events: none;
+}
+.h-screen {
+  background-image: url("../assets/images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

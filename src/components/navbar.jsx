@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import logo from "../assets/images/navbar/logo.png";
-import logoWhite from "../assets/images/navbar/logo-white.png";
+import logo from "../assets/images/logos/NSPWHITE.png";
 
 function Navbar() {
   // Toggle Menu
@@ -13,7 +12,7 @@ function Navbar() {
   const [navbarChange, setNavbarChange] = useState(false);
 
   const changeColor = () => {
-    if (window.scrollY >= 90) {
+    if (window.scrollY >= 80) {
       setNavbarChange(true);
     } else {
       setNavbarChange(false);
@@ -24,7 +23,7 @@ function Navbar() {
 
   return (
 
-    <nav className={`fixed font-body h-[10vh] left-0 right-0 top-0 z-[100] flex w-full p-[2rem] justify-between items-center mx-auto transition duration-500 ease 
+    <nav className={`fixed font-body left-0 right-0 top-0 z-[100] flex w-full px-6 py-3 justify-between items-center mx-auto transition duration-500 ease 
     ${navbarChange ? "bg-oceanGreen" : "bg-transparent"}`}
     >
       {/* Logo */}

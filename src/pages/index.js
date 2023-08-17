@@ -9,9 +9,7 @@ import ShareImage from "../assets/images/share.png";
 import SocialMedia from "../components/SocialMedia";
 import asterik from "../assets/images/home/icons8-asterisk.svg";
 import HomePageBanner from "../assets/images/background.png";
-import NTSU from "../assets/images/home/NTSU.png";
-import UON from "../assets/images/home/UON.png";
-import X from "../assets/images/home/close-thick.svg";
+import Introduction from "../components/Introduction";
 
 import Intro from "../components/intro";
 
@@ -87,73 +85,40 @@ function IndexPage({ data }) {
   return (
     // eslint-disable-next-line react/jsx-filename-extension
     <>
-      <section className="hero">
+      <section className="hero h-screen">
         <div className="hero_wrapper">
           <div className="hero_media" data-rows="3">
-            <figure className="hero_figure">
+            {/* <figure className="hero_figure">
               <img src={HomePageBanner} alt="hero" />
-            </figure>
+            </figure> */}
           </div>
           <div className="hero_row">
             <div className="hero_row_text">
-              <h1>Nottingham</h1>
-              <h4 className="opacity-0">Blossoms</h4>
+              <h1 className="md:text-9xl sm:text-8xl text-6xl">Nottingham</h1>
+              <h4 className="opacity-0 md:hidden">Blossoms</h4>
             </div>
             <div className="hero_row_separator" />
           </div>
           <div className="hero_row">
             <div className="hero_row_text">
-              <h4 className="opacity-0">Blossoms</h4>
-              <h1>Students</h1>
+              <h4 className="opacity-0 hidden md:block">Blossoms</h4>
+              <h1 className="md:text-9xl sm:text-8xl text-6xl md:ml-[0] ml-auto">
+                Students
+              </h1>
             </div>
             <div className="hero_row_separator" />
           </div>
           <div className="hero_row">
             <div className="hero_row_text">
-              <h1>Partnership</h1>
-              <h4 className="opacity-0">Blossoms</h4>
+              <h1 className="md:text-9xl sm:text-8xl text-6xl">Partnership</h1>
+              <h4 className="opacity-0 md:hidden">Blossoms</h4>
             </div>
             <div className="hero_row_separator" />
           </div>
         </div>
       </section>
       <section>
-        <div className="container text-blue-900 mt-60 mb-30 relative flex flex-col space-y-5 mx-auto justify-center text-center items-center px-4  sm:w-[70%]">
-          <Fade bottom>
-            <img src={logo} alt="logo" className="w-[200px] mx-auto" />
-            <p className="tracking-tight text-xl font-body sm:text-2xl">
-              The Nottingham Students Partnership is a joint venture between the
-              University of Nottingham Students’ Union and Nottingham Trent
-              Students' Union to represent the interests of students in the City
-              of Nottingham.
-            </p>
-            <p className="tracking-tight text-xl font-body sm:text-2xl">
-              Our members make up about 1/7th of the City’s population, and our
-              aim is that their involvement in the city is as proportional as
-              they are, with us as their students’ unions providing our insight
-              and their voice where we can.
-            </p>
-            <div className="flex flex-row space-x-5 items-center">
-              <a
-                href="https://www.trentstudents.org/"
-                target="_blank"
-                rel="noreferrer"
-                title="NTSU"
-              >
-                <img src={NTSU} className="h-[50px]" alt="NTSU" />
-              </a>
-              <img src={X} alt="asterik" className="h-[30px]" />
-              <a
-                href="https://su.nottingham.ac.uk/"
-                target="_blank"
-                rel="noreferrer"
-                title="UON SU"
-              >
-                <img src={UON} alt="UON" className="h-[100px]" />
-              </a>
-            </div>
-          </Fade>
-        </div>
+        <Introduction />
       </section>
       {/* Who we are x People */}
       <People />

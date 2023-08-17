@@ -12,7 +12,7 @@ function NewsWidget(props) {
   return (
     <section className="mt-20">
       <Fade bottom>
-        <h2 className="px-10 py-8 text-stone-50 text-3xl font-bold font-body sm:text-6xl text-left bg-oceanBlue">
+        <h2 className="bg-oceanGreen px-10 py-8 text-stone-50 text-3xl font-bold font-body sm:text-6xl text-left bg-oceanBlue">
           Latest News{" "}
         </h2>
       </Fade>
@@ -39,7 +39,11 @@ function NewsWidget(props) {
                 >
                   Read Article
                   <span>
-                    <img src={Right} alt="right" className="rotate-90 inline ml-2 w-[15px] mb-1" />{" "}
+                    <img
+                      src={Right}
+                      alt="right"
+                      className="rotate-90 inline ml-2 w-[15px] mb-1"
+                    />{" "}
                   </span>
                 </Link>
               </div>

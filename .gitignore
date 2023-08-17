@@ -73,3 +73,4 @@ todo.txt
 # Local Netlify folder
 .netlify
 todo.txt
+.vscode

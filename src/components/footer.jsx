@@ -1,32 +1,32 @@
-import React from 'react';
-import logo from "../assets/images/navbar/logo.png";
-import { Link } from 'gatsby';
+import React from "react";
+import { Link } from "gatsby";
+import logo from "../assets/images/logos/NSPWHITE.png";
 
 function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="flex flex-col font-body items-center mt-20 pt-10 space-y-10  border-gray-300">
-      {/* <img src={logo} alt="logo" className="h-20" />
-      <div className="flex flex-row items-center space-x-12 font-body font-semibold lg:text-lg text-sm uppercase text-oceanBlue">
-        <Link to="/" className="hover:text-blue-500">
-          Home
-        </Link>
-        <Link to="/about" className="hover:text-blue-500">
-          About
-        </Link>
-        <Link to="/" className="hover:text-blue-500">
-          People
-        </Link>
-        <Link to="/news" className="hover:text-blue-500">
-          News
-        </Link>
+    <footer className="flex flex-col font-body items-center mt-20 p-12 space-y-10 bg-nspNavy rounded-t-xl">
+      <div className="w-full flex flex-col sm:flex-row font-body  gap-4 items-center text-sm  text-oceanBlue">
+        <img src={logo} alt="logo" className="h-14" />
+
+        <div className="ml-auto flex gap-6">
+          <Link to="/" className="text-white hover:text-zinc-200">
+            Home
+          </Link>
+          <Link to="/about" className="text-white hover:text-zinc-200">
+            About
+          </Link>
+          <Link to="/" className="text-white hover:text-zinc-200">
+            Resources
+          </Link>
+          <Link to="/news" className="text-white hover:text-zinc-200">
+            News
+          </Link>
+        </div>
       </div>
-      <p className="text-gray-500 text-sm pb-2">
-        ©
-        {year}
-        {" "}
-        All Rights Reserved
-      </p> */}
+      <p className="text-zinc-50 text-xs border-t-[1px] p-4 w-full text-center">
+        ©Copyright {year} All Rights Reserved{" "}
+      </p>
     </footer>
   );
 }

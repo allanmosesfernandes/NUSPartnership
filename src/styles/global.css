@@ -95,6 +95,10 @@ body {
   display: flex;
   margin: 2rem auto;
 }
+.wordpress__html p {
+    color: black;
+}
+
 
 /* tailwind.css (or your custom CSS file) */
 @keyframes fadeIn {

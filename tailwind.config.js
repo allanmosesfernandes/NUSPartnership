@@ -23,8 +23,8 @@ module.exports = {
     extend: {
       colors: {
         nspNavy: "#2563EB",
-        nspTeal: "#06AFA6", // Make sure to add # symbol before the hex value
-        nspOrange: "#EF9f69", // Make sure to add # symbol before the hex value
+        nspTeal: "#06AFA6",
+        nspOrange: "#EF9f69",
         oceanBlue: "#2563EC",
         oceanGreen: "#28958f",
       },
@@ -37,4 +37,6 @@ module.exports = {
     },
   },
   plugins: [],
+  /* Custom CSS */
+  
 };

@@ -17,13 +17,13 @@ function SingleBlog({ pageContext, data }) {
       <GatsbyImage
         image={featuredImage.node.gatsbyImage}
         alt="placeholder"
-        className="w-full h-[400px] object-cover md:h-[800px] mt-[90px] md:mt-[120px]"
+        className="w-full h-[400px] object-cover md:h-[800px]"
       />
       <div className="container mt-[10px] flex flex-col w-full p-4 mx-auto font-body lg:w-4/5 lg:p-6">
-        <div className="">
+        <div className="wordpress__html">
           <h2 className="text-oceanBlue text-2xl mb-5 lg:text-6xl">{title}</h2>
           <p className="line text-lg italic font-bold mb-5 flex pl-[35px] relative">
-            {date}
+          - {date}
           </p>
           <div
             dangerouslySetInnerHTML={{ __html: content }}

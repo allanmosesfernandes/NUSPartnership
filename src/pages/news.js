@@ -12,7 +12,6 @@ function News({ data, pageContext }) {
   console.log(posts);
 	const  length  = posts.length;
 	const { currentPage, postsPerPage, skip, totalPages } = pageContext;
-  console.log(skip);
 	return (
 		<div className="mt-40 px-4">
 			<h2 className="text-oceanBlue text-4xl font-bold my-auto items-center font-body sm:text-5xl">

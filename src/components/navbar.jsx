@@ -71,7 +71,7 @@ function Navbar() {
     Contact
   </Link>
   <Link
-						to="/about"
+						to="/resources"
 						className="block py-4 text-center menu-item"
 						onClick={toggleMenu}
 					>

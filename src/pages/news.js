@@ -8,10 +8,14 @@ import Pagination from "../components/pagination";
 
 function News({ data, pageContext }) {
 	// Fetch posts from WP
+
+	/*
 	const posts = data.allWpPost.nodes;
-  console.log(posts);
-	const  length  = posts.length;
+	console.log(posts);
+	const length = posts.length;
 	const { currentPage, postsPerPage, skip, totalPages } = pageContext;
+	*/
+
 	return (
 		<div className="mt-40 px-4">
 			<h2 className="text-oceanBlue text-4xl font-bold my-auto items-center font-body sm:text-5xl">
@@ -21,16 +25,24 @@ function News({ data, pageContext }) {
 				{
 					// Loop through posts
 					posts.map((post, index) => (
-						<Link to={post.slug} key={post.id}>
+						<Link
+							to={post.slug}
+							key={post.id}
+						>
 							<div
 								className={`cursor-pointer flex flex-col font-body grid-cols-1 gap-4 items-baseline md:items-center md:grid md:grid-cols-[1fr_2fr_1fr] w-full md:w-[80%] mx-auto mb-4 p-6`}
 							>
 								<p className="text-oceanBlue font-semibold">
-									{index < 10 ? `0${index + 1 } ` : `${index + 1 }`}.
+									{index < 10
+										? `0${index + 1} `
+										: `${index + 1}`}
+									.
 								</p>
 								<div>
 									<GatsbyImage
-										image={post.featuredImage.node.gatsbyImage}
+										image={
+											post.featuredImage.node.gatsbyImage
+										}
 										alt="post"
 										layout="constrained"
 										objectFit="contain"
@@ -62,6 +74,7 @@ export default News;
 /* Gatsby Query for fetching news bits from backend */
 /* This data is then passed as props to the NewsWidget */
 
+/*
 export const query = graphql`
 	query MyQuery($skip: Int = 0, $postsPerPage: Int = 4) {
 		allWpPost(limit: $postsPerPage, skip: $skip) {
@@ -72,10 +85,15 @@ export const query = graphql`
 				title
 				featuredImage {
 					node {
-						gatsbyImage(layout: CONSTRAINED, height: 200, fit: CONTAIN)
+						gatsbyImage(
+							layout: CONSTRAINED
+							height: 200
+							fit: CONTAIN
+						)
 					}
 				}
 			}
 		}
 	}
 `;
+*/

@@ -1,8 +1,81 @@
-import { graphql } from "gatsby";
+//import { graphql } from "gatsby";
 import React, { useEffect, useState } from "react";
-import Table from "../components/Table";
+import ResourcesTable from "../components/ResourcesTable";
+import download from "../assets/images/download.svg";
+
+/**
+ * Format bytes as human-readable text.
+ *
+ * @param bytes Number of bytes.
+ * @param si True to use metric (SI) units, aka powers of 1000. False to use
+ *           binary (IEC), aka powers of 1024.
+ * @param dp Number of decimal places to display.
+ *
+ * @return Formatted string.
+ */
+function humanFileSize(bytes, si = false, dp = 1) {
+	const thresh = si ? 1000 : 1024;
+
+	if (Math.abs(bytes) < thresh) {
+		return bytes + " B";
+	}
+
+	const units = si
+		? ["kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
+		: ["KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"];
+	let u = -1;
+	const r = 10 ** dp;
+
+	do {
+		bytes /= thresh;
+		++u;
+	} while (
+		Math.round(Math.abs(bytes) * r) / r >= thresh &&
+		u < units.length - 1
+	);
+
+	return bytes.toFixed(dp) + " " + units[u];
+}
+
+function formatDateToCustomFormat(inputDate) {
+	// Create a Date object from the input date
+	const date = new Date(inputDate);
+
+	// Define an array to store the names of months
+	const months = [
+		"Jan",
+		"Feb",
+		"Mar",
+		"Apr",
+		"May",
+		"Jun",
+		"Jul",
+		"Aug",
+		"Sep",
+		"Oct",
+		"Nov",
+		"Dec",
+	];
+
+	// Extract the month, day, and year
+	const month = months[date.getMonth()];
+	const day = date.getDate();
+	const year = date.getFullYear();
+
+	// Format the date string
+	const formattedDate = `${month} ${day}, ${year}`;
+
+	return formattedDate;
+}
+
+// Example usage:
+const inputDate = "2023-02-11";
+const formattedDate = formatDateToCustomFormat(inputDate);
+console.log(formattedDate); // Output: Feb 11, 2023
 
 const ResourcesPage = ({ data }) => {
+	const [activeFilter, setFilter] = useState(0);
+	/*
 	const { nodes } = data?.allWpLodu;
 	console.log(nodes);
 	const filesList = nodes.map((node) => {
@@ -14,102 +87,127 @@ const ResourcesPage = ({ data }) => {
 			title: fileData.title,
 		};
 	});
-	const tableHeaders = ["ID", "File Name", "File Size", "Last Uploaded"];
+	*/
+
+	const filesList = [
+		{
+			mediaItemUrl: "google.com",
+			fileSize: "10274",
+			date: "01-03-2021",
+			title: "Nottingham_resources_folder-file",
+		},
+	];
+
+	const tableHeaders = ["File Name", "File Size", "Last Uploaded"];
+	const tableFilters = ["All", "NTU", "UON"];
+
 	return (
-		<div className="mt-40 px-4 flex flex-col ">
-			<h2 className="text-oceanBlue text-4xl font-bold my-auto items-center font-body sm:text-5xl ">
+		<div className="mt-32 p-10 flex flex-col gap-10">
+			<h2 className="text-oceanBlue text-4xl font-bold font-body sm:text-5xl">
 				Resources
 			</h2>
-			<div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-				<table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-					<thead className="text-xs  text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 rounded-2xl">
-						<tr>
-							{tableHeaders.map((header, i) => {
-								return (
-									<th
-										key={i}
-										className="px-6 py-3"
-										scope="col"
-									>
-										{header}
-									</th>
-								);
-							})}
-							<th
-								className="px-6 py-3"
-								scope="col"
-							>
-								Action
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						{filesList.map((file, i) => {
-							const { date, fileSize, mediaItemUrl, title } =
-								file;
-							const serialNumber = i + 1;
+
+			<div className="w-full relative overflow-x-auto">
+				<div className="rounded-3xl p-5 border flex flex-col bg-white text-black/40 text-sm gap-6">
+					<ul className="gap-7 flex">
+						{tableFilters.map((filter, i) => {
+							const activatedFilter = i === activeFilter;
 							return (
-								<tr
-									key={i}
-									className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+								<button
+									className={
+										!activatedFilter
+											? "rounded-xl"
+											: "bg-blue-200 rounded-xl"
+									}
+									onClick={() => setFilter(i)}
 								>
-									<th
-										scope="col"
-										class="p-4"
+									<li
+										key={i}
+										className={
+											!activatedFilter
+												? "text-base p-3 px-5 duration-200 hover:text-black/70"
+												: "text-base p-3 px-5 duration-200 text-blue-500 "
+										}
 									>
-										<div class="flex items-center">
-											<input
-												id="checkbox-all-search"
-												type="checkbox"
-												class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-											/>
-											<label
-												for="checkbox-all-search"
-												class="sr-only"
-											>
-												checkbox
-											</label>
-										</div>
-									</th>
-									<th
-										scope="row"
-										className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-									>
-										{" "}
-										<p>
-											{serialNumber < 10
-												? `0${serialNumber}`
-												: { serialNumber }}
-											.
-										</p>
-									</th>
-									<td
-										className="px-6 py-4"
-										href={mediaItemUrl}
-									>
-										{title}
-									</td>
-									<td className="px-6 py-4">
-										<p>{fileSize}</p>
-									</td>
-									<td className="px-6 py-4">
-										<p>{date}</p>
-									</td>
-									<td className="px-6 py-4">
-										<p>Edit</p>
-									</td>
-								</tr>
+										{filter}
+									</li>
+								</button>
 							);
 						})}
-					</tbody>
-				</table>
+					</ul>
+					<span className="border-b flex" />
+					<ul className="flex justify-start items-center text-left gap-10">
+						<li>
+							<p>ID</p>
+						</li>
+						{tableHeaders.map((header, i) => {
+							if (i === 0) {
+								return (
+									<li
+										key={i}
+										className="w-96 text-ellipsis overflow-hidden"
+									>
+										<p>{header}</p>
+									</li>
+								);
+							}
+							return (
+								<li
+									key={i}
+									className="flex-1"
+								>
+									{header}
+								</li>
+							);
+						})}
+						<li className="">
+							<p>Action</p>
+						</li>
+					</ul>
+				</div>
+				<ul className="flex flex-col text-black text-sm w-full">
+					{filesList.map((file, i) => {
+						const { date, fileSize, mediaItemUrl, title } = file;
+						const serialNumber = i + 1;
+						const formattedDate = formatDateToCustomFormat(date);
+						return (
+							<li
+								key={i}
+								className="border-b px-8 p-4 flex justify-start items-center text-left gap-10"
+							>
+								<p>
+									{serialNumber < 10
+										? `0${serialNumber}`
+										: { serialNumber }}
+								</p>
+								<a
+									className="w-96"
+									href={mediaItemUrl}
+								>
+									{title}
+								</a>
+								<p className="flex-1">
+									{humanFileSize(fileSize)}
+								</p>
+								<p className="flex-1">{formattedDate}</p>
+								<button className="flex flex-col ">
+									<img
+										src={download}
+										alt="404 illustration"
+										className="w-7"
+									/>
+								</button>
+							</li>
+						);
+					})}
+				</ul>
 			</div>
 		</div>
 	);
 };
 
 export default ResourcesPage;
-
+/*
 export const query = graphql`
 	query MyQuery {
 		allWpLodu {
@@ -128,65 +226,4 @@ export const query = graphql`
 		}
 	}
 `;
-
-/**
- * 
- * 	<div className="relative overflow-x-auto">
-				<table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-					<thead className="text-xs  text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 rounded-2xl">
-						<tr>
-							{tableHeaders.map((header, i) => {
-								return (
-									<th
-										key={i}
-										className="px-6 py-3"
-										scope="col"
-									>
-										{header}
-									</th>
-								);
-							})}
-						</tr>
-					</thead>
-
-					<tbody>
-						{filesList.map((file, i) => {
-							const { date, fileSize, mediaItemUrl, title } =
-								file;
-							const serialNumber = i + 1;
-							return (
-								<tr
-									key={i}
-									className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-								>
-									<th
-										scope="row"
-										className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-									>
-										{" "}
-										<p>
-											{serialNumber < 10
-												? `0${serialNumber}`
-												: { serialNumber }}
-											.
-										</p>
-									</th>
-									<td
-										className="px-6 py-4"
-										href={mediaItemUrl}
-									>
-										{title}
-									</td>
-									<td className="px-6 py-4">
-										<p>{fileSize}</p>
-									</td>
-									<td className="px-6 py-4">
-										<p>{date}</p>
-									</td>
-								</tr>
-							);
-						})}
-					</tbody>
-				</table>
-			</div>
- */
+*/

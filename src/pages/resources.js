@@ -73,30 +73,73 @@ const inputDate = "2023-02-11";
 const formattedDate = formatDateToCustomFormat(inputDate);
 console.log(formattedDate); // Output: Feb 11, 2023
 
-const ResourcesPage = ({ data }) => {
-	const [activeFilter, setFilter] = useState(0);
-	/*
-	const { nodes } = data?.allWpLodu;
-	console.log(nodes);
-	const filesList = nodes.map((node) => {
-		const fileData = node.fileUpload.fileUpload;
-		return {
-			mediaItemUrl: fileData.mediaItemUrl,
-			fileSize: fileData.fileSize,
-			date: fileData.date,
-			title: fileData.title,
-		};
-	});
-	*/
+const ResourceItem = ({ serialNumber, itemUrl, title, size, date }) => {
+	return (
+		<li className="border-b px-8 p-4 flex justify-start items-center text-left gap-10">
+			<p>{serialNumber < 10 ? `0${serialNumber}` : { serialNumber }}</p>
+			<p className="w-96">{title}</p>
+			<p className="flex-1">{size}</p>
+			<p className="flex-1">{date}</p>
+			<a
+				className="flex flex-col "
+				href={itemUrl}
+				target="_blank"
+			>
+				<img
+					src={download}
+					alt="404 illustration"
+					className="w-7"
+				/>
+			</a>
+		</li>
+	);
+};
 
-	const filesList = [
-		{
-			mediaItemUrl: "google.com",
-			fileSize: "10274",
-			date: "01-03-2021",
-			title: "Nottingham_resources_folder-file",
-		},
-	];
+const MemoisedResourceItem = React.memo(ResourceItem);
+
+const ResourcesPage = ({ data }) => {
+	const [files, setFiles] = useState([]);
+	const [filteredFiles, setFilteredFiles] = useState([]);
+	const [activeFilter, setFilter] = useState(0);
+
+	useEffect(() => {
+		/*
+		const { nodes } = data?.allWpLodu;
+		const filesList = nodes.map((node) => {
+			const fileData = node.fileUpload.fileUpload;
+			return {
+				mediaItemUrl: fileData.mediaItemUrl,
+				fileSize: fileData.fileSize,
+				date: fileData.date,
+				title: fileData.title,
+			};
+		});
+		*/
+
+		const filesList = [
+			{
+				mediaItemUrl: "www.2google.com",
+				fileSize: "10274",
+				date: "01-03-2021",
+				title: "Nottingham_resources_folder-file",
+			},
+		];
+
+		setFiles(filesList);
+		setFilteredFiles(filesList);
+	}, [data]);
+
+	const onChange = (search) => {
+		const clean = (value) => {
+			return value.toLowerCase();
+		};
+
+		const newFiles = files.filter((file) => {
+			return file.title.toLowerCase().includes(search.toLowerCase());
+		});
+
+		setFilteredFiles(newFiles);
+	};
 
 	const tableHeaders = ["File Name", "File Size", "Last Uploaded"];
 	const tableFilters = ["All", "NTU", "UON"];
@@ -109,32 +152,49 @@ const ResourcesPage = ({ data }) => {
 
 			<div className="w-full relative overflow-x-auto">
 				<div className="rounded-3xl p-5 border flex flex-col bg-white text-black/40 text-sm gap-6">
-					<ul className="gap-7 flex">
-						{tableFilters.map((filter, i) => {
-							const activatedFilter = i === activeFilter;
-							return (
-								<button
-									className={
-										!activatedFilter
-											? "rounded-xl"
-											: "bg-blue-200 rounded-xl"
-									}
-									onClick={() => setFilter(i)}
-								>
-									<li
-										key={i}
+					<div className="flex">
+						<ul className="gap-7 flex mr-auto">
+							{tableFilters.map((filter, i) => {
+								const activatedFilter = i === activeFilter;
+								return (
+									<button
 										className={
 											!activatedFilter
-												? "text-base p-3 px-5 duration-200 hover:text-black/70"
-												: "text-base p-3 px-5 duration-200 text-blue-500 "
+												? "rounded-xl"
+												: "bg-blue-200 rounded-xl"
 										}
+										onClick={() => setFilter(i)}
 									>
-										{filter}
-									</li>
-								</button>
-							);
-						})}
-					</ul>
+										<li
+											key={i}
+											className={
+												!activatedFilter
+													? "text-base p-3 px-5 duration-200 hover:text-black/70"
+													: "text-base p-3 px-5 duration-200 text-blue-500 "
+											}
+										>
+											{filter}
+										</li>
+									</button>
+								);
+							})}
+						</ul>
+						<div className="relative flex items-baseline">
+							<img
+								className="absolute top-3 left-3 w-5 h-5 opacity-50"
+								width="150"
+								height="150"
+								src="https://img.icons8.com/ios-filled/150/search--v1.png"
+								alt="search--v1"
+							/>
+							<input
+								type="text"
+								placeholder="Search"
+								onChange={(e) => onChange(e.target.value)}
+								className="bg-gray-100 p-3 rounded-lg w-52 pl-10"
+							/>
+						</div>
+					</div>
 					<span className="border-b flex" />
 					<ul className="flex justify-start items-center text-left gap-10">
 						<li>
@@ -166,38 +226,20 @@ const ResourcesPage = ({ data }) => {
 					</ul>
 				</div>
 				<ul className="flex flex-col text-black text-sm w-full">
-					{filesList.map((file, i) => {
+					{filteredFiles.map((file, i) => {
 						const { date, fileSize, mediaItemUrl, title } = file;
 						const serialNumber = i + 1;
 						const formattedDate = formatDateToCustomFormat(date);
+						const size = humanFileSize(fileSize);
 						return (
-							<li
+							<MemoisedResourceItem
 								key={i}
-								className="border-b px-8 p-4 flex justify-start items-center text-left gap-10"
-							>
-								<p>
-									{serialNumber < 10
-										? `0${serialNumber}`
-										: { serialNumber }}
-								</p>
-								<a
-									className="w-96"
-									href={mediaItemUrl}
-								>
-									{title}
-								</a>
-								<p className="flex-1">
-									{humanFileSize(fileSize)}
-								</p>
-								<p className="flex-1">{formattedDate}</p>
-								<button className="flex flex-col ">
-									<img
-										src={download}
-										alt="404 illustration"
-										className="w-7"
-									/>
-								</button>
-							</li>
+								serialNumber={serialNumber}
+								itemUrl={mediaItemUrl}
+								title={title}
+								size={size}
+								date={formattedDate}
+							/>
 						);
 					})}
 				</ul>

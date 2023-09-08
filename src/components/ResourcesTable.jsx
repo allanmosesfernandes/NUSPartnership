@@ -35,13 +35,13 @@ const TableFilters = ({ data, onChange, value }) => {
 	);
 };
 
-const Table = (props) => {
+const ResourcesTable = (props) => {
 	const [activeFilter, setFilter] = useState("All");
 
 	var { tableHeaders, tableFilters } = props;
 
 	tableFilters = tableFilters || ["All", "Active", "Completed"];
-	tableHeaders = tableHeaders || ["Task", "Status", "Actions"];
+	tableHeaders = tableHeaders || ["File name", "File size", "Last uploaded"];
 
 	const handleFilterChange = (value) => {
 		setFilter(value);
@@ -66,4 +66,6 @@ const Table = (props) => {
 	);
 };
 
-export default Table;
+export default ResourcesTable;
+
+//Them ones where all ur friends have jobs but ur the jobless out of all of them
